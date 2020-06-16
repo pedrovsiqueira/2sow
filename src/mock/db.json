@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "email": "pedrovsiqueira@gmail.com",
+      "password": "$2a$10$vpkJTO4FKBqLhZl2.l/fcuBH8quc/wSW6JZqntQ/8BdzH5XGcagyK",
+      "nome": "Olivier",
+      "cpf": "213.123.123-45",
+      "endereco": {
+        "cep": 13454000,
+        "rua": "rua talvez",
+        "numero": 785,
+        "bairro": "bairro azul",
+        "cidade": "cidade eterna"
+      },
+      "id": 1
+    }
+  ]
+}
