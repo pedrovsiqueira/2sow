@@ -8,7 +8,7 @@ import logo from '../../assets/logo.svg';
 
 const SignUp: React.FC = () => {
   const handleSubmit = (data: object): void => {
-    console.log(data)
+    console.log(data);
   };
 
   return (

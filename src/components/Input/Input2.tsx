@@ -18,6 +18,14 @@ const Input2: React.FC<InputProps> = ({ name, ...rest }) => {
 
   const [isFocused, setIsFocused] = useState(false);
 
+  const handleInputFocus = useCallback(() => {
+    setIsFocused(true)
+  }, [])
+
+  const handleInputBlur = useCallback(() => {
+    setIsFocused(false)
+  }, [])
+
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -27,13 +35,13 @@ const Input2: React.FC<InputProps> = ({ name, ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-      <StyledInput
-        isFocused={isFocused}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        ref={inputRef}
-        {...rest}
-      ></StyledInput>
+    <StyledInput
+      isFocused={isFocused}
+      onFocus={handleInputFocus}
+      onBlur={handleInputBlur}
+      ref={inputRef}
+      {...rest}
+    ></StyledInput>
   );
 };
 
