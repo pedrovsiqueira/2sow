@@ -11,4 +11,10 @@ export const StyledButton = styled.button`
   padding: 15px 6px;
   letter-spacing: 0.02em;
   font-variant: small-caps;
+
+  :hover {
+    background: #e2e6e9;
+    box-shadow: 18px 18px 30px #d1d9e6, -18px -18px 30px #ffffff;
+    border-radius: 17px;
+  }
 `;

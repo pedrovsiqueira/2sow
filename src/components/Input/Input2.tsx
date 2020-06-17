@@ -1,12 +1,20 @@
-import React, { InputHTMLAttributes, useRef } from 'react';
+import React, {
+  InputHTMLAttributes,
+  useRef,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react';
 import { StyledInput } from './styles';
 
-type InputProps = InputHTMLAttributes<HTMLInputElement>;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  // name: string;
+}
 
-const Input2: React.FC<InputProps> = (props) => {
+const Input2: React.FC<InputProps> = ({name, ...rest}) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  return <StyledInput ref={inputRef} {...props}></StyledInput>;
+  return <StyledInput ref={inputRef} {...rest}></StyledInput>;
 };
 
 export default Input2;

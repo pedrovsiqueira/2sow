@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {ButtonHTMLAttributes} from 'react';
 import { StyledButton } from './styles';
 
-const Button: React.FC = ({ children }) => (
-  <StyledButton data-testid="button">{children}</StyledButton>
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+
+const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
+  <StyledButton data-testid="button" {...rest}>{children}</StyledButton>
 );
 export default Button;

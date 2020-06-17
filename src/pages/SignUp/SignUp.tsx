@@ -1,18 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, forwardRef } from 'react';
 import Button from '../../components/Button/Button';
 import Input2 from '../../components/Input/Input2';
 import { Context } from '../../FormContext';
 
-const SignUp: React.FC = () => {
+interface InputRefDTO {}
+
+interface FormProps {
+  
+}
+
+const SignUp: React.RefForwardingComponent<InputRefDTO, FormProps> = (
+  props,
+  ref
+) => {
   const { inputValues, setInputValues, handleUserSignUP } = useContext(Context);
-  return (
-    <form onSubmit={handleUserSignUP}>
-      <Input2 type="text" placeholder="example@x2listings.com"></Input2>
-      <Input2 type="text" placeholder="example@x2listings.com"></Input2>
-      <Input2 type="password" placeholder="******"></Input2>
-      <Button></Button>
-    </form>
-  );
+
+  return <form onSubmit={handleUserSignUP}></form>;
 };
 
-export default SignUp;
+export default forwardRef(SignUp);

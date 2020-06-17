@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home/Home';
+import Login from '../pages/Login/Login';
 import InsertUser from '../pages/InsertUser/InsertUser';
 
 const Routes: React.FC = () => {
@@ -9,7 +10,7 @@ const Routes: React.FC = () => {
       <Route exact path="/" component={Home} />
       <Route path="/user/edit/:id" component={Home} />
       <Route path="/user/create" component={InsertUser} />
-      <Route path="/login" component={Home} />
+      <Route path="/login" component={Login} />
       <Route path="/signup" component={Home} />
     </Switch>
   );

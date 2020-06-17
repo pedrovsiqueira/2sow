@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Input from '../../components/Input/Input2';
+import Button from '../../components/Button/Button';
+import {Container} from './styles'
 
 const Login: React.FC = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Container>
+      <form>
+        <Input />
+        <Input />
+        <Button>login</Button>
+      </form>
+    </Container>
+  );
+};
 
-export default Login
+export default Login;
