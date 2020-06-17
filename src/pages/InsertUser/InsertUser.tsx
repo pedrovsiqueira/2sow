@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import api from '../../services/api';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 interface inputValuesDTO {
   name: string;
@@ -27,7 +27,7 @@ const InsertUser = () => {
     cidade: '',
   });
 
-  const history = useHistory()
+  const history = useHistory();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -53,7 +53,7 @@ const InsertUser = () => {
     };
     try {
       await api.post('usuarios', newUser);
-      history.push('/')
+      history.push('/');
     } catch (err) {
       console.log(err);
     }
@@ -71,6 +71,14 @@ const InsertUser = () => {
       <Input name="bairro" value={bairro} handleChange={handleChange} />
       <Input name="cidade" value={cidade} handleChange={handleChange} />
 
+      {/* {Object.keys(inputValues).map((item) => (
+        <Input
+          name={item}
+          value={inputValues[item]}
+          handleChange={handleChange}
+          key={item}
+        />
+      ))} */}
       <Button>inserir</Button>
     </form>
   );
