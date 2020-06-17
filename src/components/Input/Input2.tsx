@@ -6,18 +6,25 @@ import React, {
   useCallback,
 } from 'react';
 import { StyledInput } from './styles';
+import { useField } from '@unform/core';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  name?: string;
+  name: string;
 }
 
-const Input2: React.FC<InputProps> = ({name, ...rest}) => {
+const Input2: React.FC<InputProps> = ({ name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const { fieldName, defaultValue, error, registerField } = useField(name);
 
-  return (
-    
-    <StyledInput ref={inputRef} {...rest}></StyledInput>
-  );
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      path: 'value',
+    });
+  }, [fieldName, registerField]);
+
+  return <StyledInput ref={inputRef} {...rest}></StyledInput>;
 };
 
 export default Input2;

@@ -2,17 +2,20 @@ import React from 'react';
 import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
 import { Container } from './styles';
+import { Form } from '@unform/web';
 
 import logo from '../../assets/logo.svg';
 
 const SignUp: React.FC = () => {
+  const handleSubmit = (data: object): void => {};
+
   return (
     <Container>
       <figure>
         <img src={logo} alt="logo" />
       </figure>
       <h1>Seja bem vindo.</h1>
-      <form>
+      <Form onSubmit={handleSubmit}>
         <section>
           <label htmlFor="email">e-mail</label>
           <Input name="email" type="email" placeholder="exemplo@gmail.com" />
@@ -30,7 +33,7 @@ const SignUp: React.FC = () => {
         <div>
           <Button>Sign Up</Button>
         </div>
-      </form>
+      </Form>
     </Container>
   );
 };
