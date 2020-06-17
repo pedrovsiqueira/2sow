@@ -10,7 +10,6 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 100%;
 
   h1 {
     font-size: 36px;
@@ -31,8 +30,8 @@ export const Content = styled.div`
   }
 
   section {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+    & :first-child{
+      margin-right: 28px;
+    }
   }
 `;
