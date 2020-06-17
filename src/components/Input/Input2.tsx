@@ -19,12 +19,12 @@ const Input2: React.FC<InputProps> = ({ name, ...rest }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleInputFocus = useCallback(() => {
-    setIsFocused(true)
-  }, [])
+    setIsFocused(true);
+  }, []);
 
   const handleInputBlur = useCallback(() => {
-    setIsFocused(false)
-  }, [])
+    setIsFocused(false);
+  }, []);
 
   useEffect(() => {
     registerField({
@@ -41,7 +41,9 @@ const Input2: React.FC<InputProps> = ({ name, ...rest }) => {
       onBlur={handleInputBlur}
       ref={inputRef}
       {...rest}
-    ></StyledInput>
+    >
+      {error}
+    </StyledInput>
   );
 };
 

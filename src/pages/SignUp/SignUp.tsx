@@ -1,13 +1,16 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
 import { Container } from './styles';
+import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
 import logo from '../../assets/logo.svg';
 
 const SignUp: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
+
   const handleSubmit = useCallback(async (data: object) => {
     try {
       const schema = Yup.object().shape({
@@ -17,9 +20,7 @@ const SignUp: React.FC = () => {
         confirmEmail: Yup.string()
           .required('Email obrigatório')
           .email('Digite um e-mail válido'),
-        password: Yup.string()
-          .required('Senha obrigatória')
-          .min(5, 'No mínimo 5 digitos'),
+        password: Yup.string().min(5, 'No mínimo 5 digitos'),
       });
 
       await schema.validate(data, {
@@ -36,7 +37,7 @@ const SignUp: React.FC = () => {
         <img src={logo} alt="logo" />
       </figure>
       <h1>Seja bem vindo.</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit}>
         <section>
           <label htmlFor="email">e-mail</label>
           <Input name="email" type="email" placeholder="exemplo@gmail.com" />
