@@ -51,5 +51,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/yup": "^0.29.3"
+  }
 }
