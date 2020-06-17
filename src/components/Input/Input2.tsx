@@ -5,7 +5,7 @@ import React, {
   useState,
   useCallback,
 } from 'react';
-import { StyledInput } from './styles';
+import { Container, StyledInput } from './styles';
 import { useField } from '@unform/core';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -35,15 +35,15 @@ const Input2: React.FC<InputProps> = ({ name, ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-    <StyledInput
-      isFocused={isFocused}
-      onFocus={handleInputFocus}
-      onBlur={handleInputBlur}
-      ref={inputRef}
-      {...rest}
-    >
+    <Container isErrored={!!error} isFocused={isFocused}>
+      <StyledInput
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
+        ref={inputRef}
+        {...rest}
+      ></StyledInput>
       {error}
-    </StyledInput>
+    </Container>
   );
 };
 
