@@ -16,6 +16,8 @@ const Input2: React.FC<InputProps> = ({ name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { fieldName, defaultValue, error, registerField } = useField(name);
 
+  const [isFocused, setIsFocused] = useState(false);
+
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -24,7 +26,15 @@ const Input2: React.FC<InputProps> = ({ name, ...rest }) => {
     });
   }, [fieldName, registerField]);
 
-  return <StyledInput ref={inputRef} {...rest}></StyledInput>;
+  return (
+      <StyledInput
+        isFocused={isFocused}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        ref={inputRef}
+        {...rest}
+      ></StyledInput>
+  );
 };
 
 export default Input2;

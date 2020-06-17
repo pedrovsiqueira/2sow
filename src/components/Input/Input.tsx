@@ -8,7 +8,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({ value, handleChange, ...rest }) => {
   return (
-    <StyledInput value={value} onChange={handleChange} {...rest}></StyledInput>
+    <div />
+    // <StyledInput value={value} onChange={handleChange} {...rest}></StyledInput>
   );
 };
 

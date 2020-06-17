@@ -7,7 +7,9 @@ import { Form } from '@unform/web';
 import logo from '../../assets/logo.svg';
 
 const SignUp: React.FC = () => {
-  const handleSubmit = (data: object): void => {};
+  const handleSubmit = (data: object): void => {
+    console.log(data)
+  };
 
   return (
     <Container>
