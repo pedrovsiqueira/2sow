@@ -1,6 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+
+  html{
+    font-size: 10px;
+  }
+
   *{
     margin: 0;
     padding: 0;
@@ -10,4 +15,22 @@ export default createGlobalStyle`
   
   body{
     -webkit-font-smoothing: antialiased;
-  }`
+    font-size: 1.6rem;
+    color: #2A2A2A;
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+    font-family: 'Work Sans', sans-serif;
+    background-color: #ECF0F3;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  input, button{
+    border: none;
+  }
+  
+  `;

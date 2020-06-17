@@ -1,12 +1,14 @@
-import React from "react";
-import GlobalStyle from "./styles/global";
+import React from 'react';
+import GlobalStyle from './styles/global';
+import Routes from './Routes/Routes';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      <h1>pedro lindo</h1>
+    <Router>
+      <Routes />
       <GlobalStyle />
-    </>
+    </Router>
   );
 }
 
