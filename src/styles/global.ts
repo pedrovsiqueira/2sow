@@ -37,4 +37,9 @@ export default createGlobalStyle`
     cursor: pointer;
   }
   
+  h1{
+    font-size: 3.6rem;
+    text-align: center;
+    font-weight: 400;
+  }
   `;

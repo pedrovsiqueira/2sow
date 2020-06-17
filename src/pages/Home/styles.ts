@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,12 +11,8 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-
   h1 {
-    font-size: 36px;
-    text-align: center;
     margin: 87px 0;
-    font-weight: 400;
   }
 
   figure {
