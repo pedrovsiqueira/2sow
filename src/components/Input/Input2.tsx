@@ -8,13 +8,16 @@ import React, {
 import { StyledInput } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  // name: string;
+  name?: string;
 }
 
 const Input2: React.FC<InputProps> = ({name, ...rest}) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  return <StyledInput ref={inputRef} {...rest}></StyledInput>;
+  return (
+    
+    <StyledInput ref={inputRef} {...rest}></StyledInput>
+  );
 };
 
 export default Input2;

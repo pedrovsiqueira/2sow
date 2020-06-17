@@ -1,21 +1,38 @@
-import React, { useContext, forwardRef } from 'react';
+import React from 'react';
+import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
-import Input2 from '../../components/Input/Input2';
-import { Context } from '../../FormContext';
+import { Container } from './styles';
 
-interface InputRefDTO {}
+import logo from '../../assets/logo.svg';
 
-interface FormProps {
-  
-}
+const SignUp: React.FC = () => {
+  return (
+    <Container>
+      <figure>
+        <img src={logo} alt="logo" />
+      </figure>
+      <h1>Seja bem vindo.</h1>
+      <form>
+        <section>
+          <label htmlFor="email">e-mail</label>
+          <Input name="email" type="email" placeholder="exemplo@gmail.com" />
 
-const SignUp: React.RefForwardingComponent<InputRefDTO, FormProps> = (
-  props,
-  ref
-) => {
-  const { inputValues, setInputValues, handleUserSignUP } = useContext(Context);
+          <label htmlFor="confirm-email">confirme o e-mail</label>
+          <Input
+            name="confirm-email"
+            type="email"
+            placeholder="exemplo@gmail.com"
+          />
 
-  return <form onSubmit={handleUserSignUP}></form>;
+          <label htmlFor="password">password</label>
+          <Input name="password" type="password" placeholder="******" />
+        </section>
+        <div>
+          <Button>Sign Up</Button>
+        </div>
+      </form>
+    </Container>
+  );
 };
 
-export default forwardRef(SignUp);
+export default SignUp;

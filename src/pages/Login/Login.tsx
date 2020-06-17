@@ -14,7 +14,7 @@ const Login: React.FC = () => {
       <h1>Seja bem vindo.</h1>
       <form>
         <section>
-          <label htmlFor="email">email</label>
+          <label htmlFor="email">e-mail</label>
           <Input name="email" type="email" placeholder="exemplo@gmail.com" />
 
           <label htmlFor="password">password</label>

@@ -8,4 +8,8 @@ export const StyledInput = styled.input`
     inset 10px 10px 30px rgba(255, 255, 255, 0.4);
   border-radius: 17px;
   padding: 15px;
+
+  &::placeholder {
+    color: #a2a2a2;
+  }
 `;
