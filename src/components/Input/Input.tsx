@@ -1,11 +1,15 @@
-import React, { InputHTMLAttributes, useRef } from 'react';
+import React, { InputHTMLAttributes, ChangeEvent } from 'react';
 import { StyledInput } from './styles';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  value: string | number;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
 
-const Input: React.FC<InputProps> = (props) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  return <StyledInput ref={inputRef} {...props}></StyledInput>;
+const Input: React.FC<InputProps> = ({ value, handleChange, ...rest }) => {
+  return (
+    <StyledInput value={value} onChange={handleChange} {...rest}></StyledInput>
+  );
 };
 
 export default Input;

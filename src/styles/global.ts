@@ -32,5 +32,9 @@ export default createGlobalStyle`
   input, button{
     border: none;
   }
+
+  button{
+    cursor: pointer;
+  }
   
   `;

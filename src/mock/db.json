@@ -2,9 +2,20 @@
   "users": [
     {
       "email": "pedrovsiqueira@gmail.com",
-      "password": "$2a$10$vpkJTO4FKBqLhZl2.l/fcuBH8quc/wSW6JZqntQ/8BdzH5XGcagyK",
-      "nome": "Olivier",
+      "password": "$2a$10$XjKtu/JVpgsSmJBPrt7K/O02yZMgh3JA3dx7.sByOEpGdh8jKqLv2",
+      "id": 1
+    },
+    {
+      "email": "pedrovsiqueira@gmail.com",
+      "password": "$2a$10$XjKtu/JVpgsSmJBPrt7K/O02yZMgh3JA3dx7.sByOEpGdh8jKqLv2",
+      "id": 1
+    }
+  ],
+  "usuarios": [
+    {
+      "nome": "foo bar",
       "cpf": "213.123.123-45",
+      "email": "foo_bar@email.com",
       "endereco": {
         "cep": 13454000,
         "rua": "rua talvez",
@@ -13,6 +24,32 @@
         "cidade": "cidade eterna"
       },
       "id": 1
+    },
+    {
+      "name": "name",
+      "cpf": "04352926175",
+      "email": "pedro.v.siqueira@gmail.com",
+      "endereco": {
+        "cep": "74565019",
+        "rua": "avenida rio branco",
+        "numero": "10",
+        "bairro": "urias",
+        "cidade": "goiania"
+      },
+      "id": 2
+    },
+    {
+      "name": "",
+      "cpf": "",
+      "email": "",
+      "endereco": {
+        "cep": "",
+        "rua": "",
+        "numero": 0,
+        "bairro": "",
+        "cidade": ""
+      },
+      "id": 3
     }
   ]
 }
