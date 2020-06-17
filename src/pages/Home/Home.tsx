@@ -4,7 +4,7 @@ import { Container, Content } from './styles';
 
 import Button from '../../components/Button/Button';
 
-const Login = () => {
+const Home = () => {
   return (
     <Container>
       <Content>
@@ -21,4 +21,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Home;
