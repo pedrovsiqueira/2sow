@@ -42,6 +42,7 @@ export const StyledInput = styled.input<StyledProps>`
   background: transparent;
   border: 0;
   padding: 15px;
+  width: 100%;
 
   &::placeholder {
     color: #a2a2a2;
@@ -51,6 +52,6 @@ export const StyledInput = styled.input<StyledProps>`
 export const Error = styled.div`
   height: 20px;
   svg {
-    margin: 12px 0px 0px 40px;
+    margin: 12px 20px 0px 0px;
   }
 `;
