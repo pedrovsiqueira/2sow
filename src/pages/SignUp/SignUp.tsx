@@ -17,12 +17,13 @@ const SignUp: React.FC = () => {
 
       const schema = Yup.object().shape({
         email: Yup.string()
-          .required('Email obrigatório')
+          .required('Confirme seu e-mail')
           .email('Digite um e-mail válido'),
         confirmEmail: Yup.string()
-          .required('Email obrigatório')
-          .email('Digite um e-mail válido'),
-        password: Yup.string().min(5, 'Mínimo 5 digitos'),
+          .required('Confirme seu e-mail')
+          .email('Digite um e-mail válido')
+          .oneOf([Yup.ref('email')], 'Emails precisam ser iguais'),
+        password: Yup.string().min(5, 'No mínimo 5 digitos'),
       });
 
       await schema.validate(data, {
@@ -46,10 +47,7 @@ const SignUp: React.FC = () => {
           <Input name="email" placeholder="exemplo@gmail.com" />
 
           <label htmlFor="confirmEmail">confirme o e-mail</label>
-          <Input
-            name="confirmEmail"
-            placeholder="exemplo@gmail.com"
-          />
+          <Input name="confirmEmail" placeholder="exemplo@gmail.com" />
 
           <label htmlFor="password">password</label>
           <Input name="password" type="password" placeholder="******" />

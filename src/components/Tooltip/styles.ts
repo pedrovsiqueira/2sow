@@ -4,22 +4,21 @@ export const Container = styled.div`
   position: relative;
 
   span {
-    width: 135px;
-    background: #ecf0f3;
-    box-shadow: 18px 18px 30px #bfcee6,
-      inset 10px 10px 30px rgba(255, 196, 196, 0.4);
+    text-align: center;
+    width: 180px;
+    background: #f8a186;
     padding: 8px;
     border-radius: 17px;
     font-size: 14px;
     font-weight: 500;
-    color: #a2a2a2;
+    color: #ecf0f3;
     opacity: 0;
     transition: opacity 0.4s;
     visibility: hidden;
 
     position: absolute;
-    bottom: 100%;
-    left: 28%;
+    bottom: 161%;
+    left: 38%;
     transform: translateX(-50%);
 
     &::before {
