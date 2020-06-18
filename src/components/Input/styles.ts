@@ -1,12 +1,14 @@
 import styled, { css } from 'styled-components';
 
 interface StyledProps {
-  isFocused: boolean;
+  isFocused?: boolean;
   isErrored: boolean;
 }
 
 export const Container = styled.div<StyledProps>`
-  min-width: 304px;
+  width: 304px;
+  height: 50px;
+  display: flex;
   box-sizing: border-box;
   background-color: #ecf0f3;
   box-shadow: 18px 18px 30px #d1d9e6,
@@ -29,17 +31,26 @@ export const Container = styled.div<StyledProps>`
       box-shadow: 18px 18px 30px #bfcee6,
         inset 10px 10px 30px rgba(255, 255, 255, 0.4);
       border: 2px solid #a6bba8;
+
+      &::placeholder {
+        color: #a2a2a2;
+      }
     `}
 `;
 
-export const StyledInput = styled.input`
-  width: 100%;
+export const StyledInput = styled.input<StyledProps>`
   background: transparent;
   border: 0;
   padding: 15px;
-  height: 50px;
 
   &::placeholder {
     color: #a2a2a2;
+  }
+`;
+
+export const Error = styled.div`
+  height: 20px;
+  svg {
+    margin: 12px 0px 0px 40px;
   }
 `;

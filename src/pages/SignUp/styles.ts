@@ -34,22 +34,5 @@ export const Container = styled.div`
       font-variant: small-caps;
       margin-bottom: 8px;
     }
-
-    & :nth-child(2n) {
-      margin-bottom: 24px;
-    }
-
-    & :nth-child(6) {
-      margin-bottom: 63px;
-    }
-  }
-
-  div {
-    width: 100%;
-    margin-bottom: 48px;
-    & :first-child {
-      margin: 0 auto;
-      display: block;
-    }
   }
 `;

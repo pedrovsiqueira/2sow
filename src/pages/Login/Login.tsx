@@ -3,13 +3,14 @@ import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
 import { Container } from './styles';
 import { Form } from '@unform/web';
+import { FiAlertCircle } from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 
 const Login: React.FC = () => {
   const handleSubmit = (data: object): void => {
-    console.log(data)
-  }
+    console.log(data);
+  };
   return (
     <Container>
       <figure>
@@ -19,10 +20,20 @@ const Login: React.FC = () => {
       <Form onSubmit={handleSubmit}>
         <section>
           <label htmlFor="email">e-mail</label>
-          <Input name="email" type="email" placeholder="exemplo@gmail.com" />
+          <Input
+            icon={FiAlertCircle}
+            name="email"
+            type="email"
+            placeholder="exemplo@gmail.com"
+          />
 
           <label htmlFor="password">password</label>
-          <Input name="password" type="password" placeholder="******" />
+          <Input
+            icon={FiAlertCircle}
+            name="password"
+            type="password"
+            placeholder="******"
+          />
         </section>
         <div>
           <Button>login</Button>

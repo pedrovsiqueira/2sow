@@ -7,6 +7,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import getValidationErrors from '../../utils/getValidationErrors';
 import logo from '../../assets/logo.svg';
+import { FiAlertCircle } from 'react-icons/fi';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -43,17 +44,28 @@ const SignUp: React.FC = () => {
       <Form ref={formRef} onSubmit={handleSubmit}>
         <section>
           <label htmlFor="email">e-mail</label>
-          <Input name="email" type="email" placeholder="exemplo@gmail.com" />
+          <Input
+            icon={FiAlertCircle}
+            name="email"
+            type="email"
+            placeholder="exemplo@gmail.com"
+          />
 
           <label htmlFor="confirmEmail">confirme o e-mail</label>
           <Input
+            icon={FiAlertCircle}
             name="confirmEmail"
             type="email"
             placeholder="exemplo@gmail.com"
           />
 
           <label htmlFor="password">password</label>
-          <Input name="password" type="password" placeholder="******" />
+          <Input
+            icon={FiAlertCircle}
+            name="password"
+            type="password"
+            placeholder="******"
+          />
         </section>
         <div>
           <Button>Sign Up</Button>
