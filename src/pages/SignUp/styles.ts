@@ -32,7 +32,12 @@ export const Container = styled.div`
       font-weight: 600;
       letter-spacing: 0.02em;
       font-variant: small-caps;
-      margin-bottom: 8px;
+      margin: 24px 0 8px 0;
     }
+  }
+
+  div {
+      display: flex;
+      justify-content: center;
   }
 `;

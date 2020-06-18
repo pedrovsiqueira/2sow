@@ -15,6 +15,7 @@ export const Container = styled.div`
     color: #a2a2a2;
     opacity: 0;
     transition: opacity 0.4s;
+    visibility: hidden;
 
     position: absolute;
     bottom: 100%;
@@ -35,5 +36,6 @@ export const Container = styled.div`
 
   &:hover span {
     opacity: 1;
+    visibility: visible;
   }
 `;
