@@ -43,12 +43,11 @@ const SignUp: React.FC = () => {
       <Form ref={formRef} onSubmit={handleSubmit}>
         <section>
           <label htmlFor="email">e-mail</label>
-          <Input name="email" type="email" placeholder="exemplo@gmail.com" />
+          <Input name="email" placeholder="exemplo@gmail.com" />
 
           <label htmlFor="confirmEmail">confirme o e-mail</label>
           <Input
             name="confirmEmail"
-            type="email"
             placeholder="exemplo@gmail.com"
           />
 
