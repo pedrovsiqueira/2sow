@@ -12,7 +12,7 @@ import { FiAlertCircle } from 'react-icons/fi';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  icon: React.ComponentType<IconBaseProps>;
+  icon?: React.ComponentType<IconBaseProps>;
 }
 
 const Input2: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
@@ -48,7 +48,7 @@ const Input2: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
       ></StyledInput>
 
       {error && (
-        <Error>
+        <Error title={error}>
           <FiAlertCircle color="#f8a186" size={20} />
         </Error>
       )}
