@@ -1,10 +1,12 @@
 import { createContext } from 'react';
 //context utilizado para pegar informações do user
 
-interface AuthContext {
+interface AuthContextData {
   name: string;
 }
 
-const authContext = createContext<AuthContext>({} as AuthContext);
+const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-export default authContext;
+
+
+export default AuthContext;
