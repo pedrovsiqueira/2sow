@@ -18,7 +18,7 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 const AuthProvider: React.FC = ({ children }) => {
   const signIn = useCallback(async ({ email, password }) => {
     try {
-      const response = await api.post('users', {
+      const response = await api.post('signin', {
         email,
         password,
       });
