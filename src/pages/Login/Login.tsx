@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useContext } from 'react';
 import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
 import { Container } from './styles';
@@ -7,11 +7,14 @@ import { FiAlertCircle } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import getValidationErrors from '../../utils/getValidationErrors';
+import AuthContext from '../../context/AuthContext';
 
 import logo from '../../assets/logo.svg';
 
 const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+
+  const { name } = useContext(AuthContext);
 
   const handleSubmit = useCallback(async (data: object) => {
     try {
@@ -51,7 +54,7 @@ const Login: React.FC = () => {
               placeholder="exemplo@gmail.com"
             />
           </section>
-          
+
           <section>
             <label htmlFor="password">password</label>
             <Input

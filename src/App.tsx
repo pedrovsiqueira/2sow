@@ -7,7 +7,7 @@ import AuthContext from '../src/context/AuthContext';
 function App() {
   return (
     <>
-      <AuthContext.Provider>
+      <AuthContext.Provider value={{name: ''}}>
         <Router>
           <Routes />
         </Router>
