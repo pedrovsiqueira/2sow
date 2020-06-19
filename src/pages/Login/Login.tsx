@@ -7,14 +7,13 @@ import { FiAlertCircle } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import getValidationErrors from '../../utils/getValidationErrors';
-import AuthContext from '../../context/AuthContext';
-
+import { AuthContext } from '../../context/AuthContext';
 import logo from '../../assets/logo.svg';
 
 const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { name } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   const handleSubmit = useCallback(async (data: object) => {
     try {
@@ -30,11 +29,13 @@ const Login: React.FC = () => {
       await schema.validate(data, {
         abortEarly: false,
       });
+
+      signIn()
     } catch (err) {
       const errors = getValidationErrors(err);
       formRef.current?.setErrors(errors);
     }
-  }, []);
+  }, [signIn]);
   return (
     <Container>
       <main>
