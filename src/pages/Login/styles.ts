@@ -21,10 +21,11 @@ export const Container = styled.div`
   }
 
   section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    margin-bottom: 24px;
 
     label {
       font-size: 2rem;
@@ -34,17 +35,12 @@ export const Container = styled.div`
       margin-bottom: 8px;
     }
 
-    & :nth-child(2) {
-      margin-bottom: 24px;
-    }
-
     & :nth-child(4) {
       margin-bottom: 63px;
     }
   }
 
   div {
-    width: 100%;
     & :first-child {
       margin: 0 auto;
       display: block;

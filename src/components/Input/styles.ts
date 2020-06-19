@@ -53,5 +53,5 @@ export const StyledInput = styled.input<StyledProps>`
 
 export const Error = styled(Tooltip)`
   height: 20px;
-  padding: 10px 10px 0 0;
+  padding: 12px 10px 0 0;
 `;

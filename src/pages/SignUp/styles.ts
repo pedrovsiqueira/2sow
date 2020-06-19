@@ -27,6 +27,10 @@ export const Container = styled.div`
     justify-content: center;
     align-items: flex-start;
 
+    & :last-child > div{
+      margin-bottom: 50px;
+    }
+
     label {
       font-size: 2rem;
       font-weight: 600;
@@ -37,7 +41,7 @@ export const Container = styled.div`
   }
 
   div {
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
   }
 `;

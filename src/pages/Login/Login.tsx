@@ -34,26 +34,33 @@ const Login: React.FC = () => {
   }, []);
   return (
     <Container>
-      <figure>
-        <img src={logo} alt="logo" />
-      </figure>
-      <h1>Seja bem vindo.</h1>
+      <main>
+        <figure>
+          <img src={logo} alt="logo" />
+        </figure>
+        <h1>Seja bem vindo.</h1>
+      </main>
+
       <Form ref={formRef} onSubmit={handleSubmit}>
         <section>
-          <label htmlFor="email">e-mail</label>
-          <Input
-            icon={FiAlertCircle}
-            name="email"
-            placeholder="exemplo@gmail.com"
-          />
-
-          <label htmlFor="password">password</label>
-          <Input
-            icon={FiAlertCircle}
-            name="password"
-            type="password"
-            placeholder="******"
-          />
+          <section>
+            <label htmlFor="email">e-mail</label>
+            <Input
+              icon={FiAlertCircle}
+              name="email"
+              placeholder="exemplo@gmail.com"
+            />
+          </section>
+          
+          <section>
+            <label htmlFor="password">password</label>
+            <Input
+              icon={FiAlertCircle}
+              name="password"
+              type="password"
+              placeholder="******"
+            />
+          </section>
         </section>
         <div>
           <Button>login</Button>

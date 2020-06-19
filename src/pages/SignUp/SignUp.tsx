@@ -37,20 +37,28 @@ const SignUp: React.FC = () => {
 
   return (
     <Container>
-      <figure>
-        <img src={logo} alt="logo" />
-      </figure>
-      <h1>Seja bem vindo.</h1>
+      <main>
+        <figure>
+          <img src={logo} alt="logo" />
+        </figure>
+        <h1>Seja bem vindo.</h1>
+      </main>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <section>
-          <label htmlFor="email">e-mail</label>
-          <Input name="email" placeholder="exemplo@gmail.com" />
+          <section>
+            <label htmlFor="email">e-mail</label>
+            <Input name="email" placeholder="exemplo@gmail.com" />
+          </section>
 
-          <label htmlFor="confirmEmail">confirme o e-mail</label>
-          <Input name="confirmEmail" placeholder="exemplo@gmail.com" />
+          <section>
+            <label htmlFor="confirmEmail">confirme o e-mail</label>
+            <Input name="confirmEmail" placeholder="exemplo@gmail.com" />
+          </section>
 
-          <label htmlFor="password">password</label>
-          <Input name="password" type="password" placeholder="******" />
+          <section>
+            <label htmlFor="password">password</label>
+            <Input name="password" type="password" placeholder="******" />
+          </section>
         </section>
         <div>
           <Button>Sign Up</Button>
