@@ -1,5 +1,21 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "pedro@gmail.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "email": "pedro1@gmail.com",
+      "password": "$2a$10$.vRmQ9pK/L79fzMH4FTvyOVb8Ai/NWoCocakET0KX6MLppqF/GUFK",
+      "id": 2
+    },
+    {
+      "email": "123@123.com",
+      "password": "$2a$10$FRi/2I3hQyf8NwsOCx79/OkgVpqZLT2.x89HoZEaWMmwC9ul7AV.K",
+      "id": 3
+    }
+  ],
   "usuarios": [
     {
       "nome": "foo bar",
