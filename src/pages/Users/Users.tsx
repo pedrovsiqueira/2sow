@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useCallback } from 'react';
+import api from '../../services/api';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
+import bwlogo from '../../assets/bwlogo.svg';
+import Logout from '../../components/Logout/Logout';
+import { Container } from './styles';
 
-const Users = () => {
+const Users: React.FC = () => {
+  const { signOut } = useAuth();
+
+  const handleSignOut = useCallback(() => {}, []);
   return (
-    <div>
-      <h1>this is my users page</h1>
-    </div>
-  )
-}
+    <Container>
+      <nav>
+        <figure>
+          <img src={bwlogo} alt="bw logo" />
+        </figure>
 
-export default Users
+        <Logout onClick={handleSignOut} />
+      </nav>
+      <h1>this is my users page</h1>
+    </Container>
+  );
+};
+
+export default Users;

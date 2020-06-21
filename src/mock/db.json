@@ -26,6 +26,42 @@
       "password": "$2a$10$UbM7k66TONfYWTYwYupzhe.LH63K1WCUusuCJJV/h98bzMO15BlIi",
       "confirmEmail": "i.r.pedro3@gmail.com",
       "id": 5
+    },
+    {
+      "email": "bruno@gmail.com",
+      "password": "$2a$10$sHqgsMfa8POVKH8ZWg28L.xWG8zXWiZjjYSJ6KcZeXAy76qR3VRc.",
+      "confirmEmail": "bruno@gmail.com",
+      "id": 6
+    },
+    {
+      "email": "brunogyn@gmail.com",
+      "password": "$2a$10$qbRm/5djsbbpijCqFMYyuelP12Z8yMEdNYkhcp/Kgoh7.ckXH7s1.",
+      "confirmEmail": "brunogyn@gmail.com",
+      "id": 7
+    },
+    {
+      "email": "pedro123@gmail.com",
+      "password": "$2a$10$0u/GpKlrqa/UyZMMHEsXY.7RyIg6sGOEsYJwzO4/leqdb0UAySbcG",
+      "confirmEmail": "pedro123@gmail.com",
+      "id": 8
+    },
+    {
+      "email": "pedro@gmail1.com",
+      "password": "$2a$10$b4wyQ1iP1h4mhsTUSVbr5e7cm7h/dK8eVTYixOdm3hwXiTEdaMZn.",
+      "confirmEmail": "pedro@gmail1.com",
+      "id": 9
+    },
+    {
+      "email": "pedro123@pedro123.com",
+      "password": "$2a$10$ssIcpfuI1G1rpzpizr2zzuk1fHI3tOHzY.E3DkKQhyD4mlgQlJcA2",
+      "confirmEmail": "pedro123@pedro123.com",
+      "id": 10
+    },
+    {
+      "email": "123pedro@123pedro.com",
+      "password": "$2a$10$BnM3ZWTMy7Tma5IZ0obdsO0de0Mc0sw9aFxaMAXblafeJhGqy6416",
+      "confirmEmail": "123pedro@123pedro.com",
+      "id": 11
     }
   ],
   "usuarios": [

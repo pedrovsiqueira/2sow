@@ -11,14 +11,14 @@ const toastTypeVartiations = {
     border: 2px solid #3172b7;
   `,
   success: css`
-    box-shadow: 18px 18px 30px #bfcee6,
-      inset 10px 10px 30px rgba(255, 255, 255, 0.4);
+    box-shadow: 2px 2px 8px #20202026,
+      inset 2px 2px 8px rgba(255, 255, 255, 0.4);
     border: 2px solid #a6bba8;
+    color: #a6bba8;
   `,
   error: css`
     border: 2px solid #f8a186;
-    box-shadow: 18px 18px 30px #bfcee6,
-      inset 10px 10px 30px rgba(255, 196, 196, 0.4);
+    box-shadow: 2px 2px 8px #bfcee6, inset 2px 2px 8px rgba(255, 196, 196, 0.4);
     color: #f8a186;
   `,
 };
