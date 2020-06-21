@@ -7,7 +7,8 @@ import { FiAlertCircle } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { useAuth } from '../../hooks/AuthContext';
+import { useAuth } from '../../hooks/auth';
+import { useToast } from '../../hooks/toast';
 import logo from '../../assets/logo.svg';
 
 interface SignInFormData {
@@ -18,8 +19,10 @@ interface SignInFormData {
 const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { signIn } = useAuth();
+  const { user ,signIn } = useAuth();
+  const { addToast, removeToast } = useToast();
 
+  console.log(user);
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
       try {
@@ -36,7 +39,7 @@ const Login: React.FC = () => {
           abortEarly: false,
         });
 
-        signIn({
+        await signIn({
           email: data.email,
           password: data.password,
         });
@@ -45,12 +48,10 @@ const Login: React.FC = () => {
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-        //disparar um toast
-
-        
+        addToast();
       }
     },
-    [signIn]
+    [signIn, addToast]
   );
   return (
     <Container>

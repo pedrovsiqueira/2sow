@@ -2,19 +2,17 @@ import React from 'react';
 import GlobalStyle from './styles/global';
 import Routes from './Routes/Routes';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AuthProvider } from '../src/hooks/AuthContext';
-import ToastContainer from './components/ToastContainer/ToastContainer';
+import AppProvider from './hooks/index';
 
 function App() {
   return (
     <>
-      <AuthProvider>
+      <AppProvider>
         <Router>
           <Routes />
         </Router>
-      </AuthProvider>
+      </AppProvider>
 
-      <ToastContainer />
       <GlobalStyle />
     </>
   );
