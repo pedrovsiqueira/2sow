@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../assets/logo.svg';
 import { Container, Content } from './styles';
+import { Link } from 'react-router-dom';
 
 import Button from '../../components/Button/Button';
 
@@ -13,8 +14,12 @@ const Home = () => {
         </figure>
         <h1>Seja bem vindo.</h1>
         <section>
-          <Button>login</Button>
-          <Button>sign up</Button>
+          <Link to="/login">
+            <Button>login</Button>
+          </Link>
+          <Link to="/signup">
+            <Button>sign up</Button>
+          </Link>
         </section>
       </Content>
     </Container>
