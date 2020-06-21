@@ -17,8 +17,6 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    outline: 1px solid red;
-
     h1 {
       letter-spacing: 0.02em;
       font-variant: small-caps;

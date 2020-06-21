@@ -6,6 +6,7 @@ import bwlogo from '../../assets/bwlogo.svg';
 import Logout from '../../components/Logout/Logout';
 import { Container } from './styles';
 import SearchInput from '../../components/Input/SearchInput/SearchInput';
+import Card from '../../components/Card/Card';
 
 const Users: React.FC = () => {
   const { signOut } = useAuth();
@@ -32,6 +33,8 @@ const Users: React.FC = () => {
           name="search"
         />
       </main>
+
+      <Card />
     </Container>
   );
 };
