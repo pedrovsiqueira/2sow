@@ -19,7 +19,7 @@ interface SignInFormData {
 const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { user ,signIn } = useAuth();
+  const { user, signIn } = useAuth();
   const { addToast, removeToast } = useToast();
 
   console.log(user);
@@ -48,7 +48,12 @@ const Login: React.FC = () => {
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
         }
-        addToast();
+        addToast({
+          type: 'error',
+          description:
+            'Ocorreu um erro ao fazer login, verifique as credenciais',
+          title: 'Erro na autenticação',
+        });
       }
     },
     [signIn, addToast]
