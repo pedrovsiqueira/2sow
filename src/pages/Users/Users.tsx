@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/auth';
 import bwlogo from '../../assets/bwlogo.svg';
 import Logout from '../../components/Logout/Logout';
 import { Container } from './styles';
-import Input from '../../components/Input/Input2';
+import SearchInput from '../../components/Input/SearchInput/SearchInput';
 import { Form } from '@unform/web';
 import { FiSearch } from 'react-icons/fi';
 
@@ -28,10 +28,8 @@ const Users: React.FC = () => {
         <h1>listagem</h1>
         <p>Confira aqui a sua lista de usuários cadastrados</p>
       </main>
-      
-      <Form onSubmit={handleSearch}>
-        <Input name="search" />
-      </Form>
+
+      <SearchInput type="text" placeholder="Digite um nome" onChange={handleSearch} name="search" />
     </Container>
   );
 };
