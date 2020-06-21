@@ -1,19 +1,39 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Home from '../pages/Home/Home';
-import Login from '../pages/Login/Login';
-import SignUp from '../pages/SignUp/SignUp';
-import InsertUser from '../pages/InsertUser/InsertUser';
+import {
+  RouteProps as ReactRouteProps,
+  Route as ReactDOMRoute,
+  Redirect,
+} from 'react-router-dom';
+import { useAuth } from '../hooks/auth';
 
-const Routes: React.FC = () => {
+interface RouteProps extends ReactRouteProps {
+  isPrivate?: boolean;
+  component: React.ComponentType;
+}
+
+//rota privada/usuário autenticado
+//true/true = ok
+//true/false = redirect login
+//false/true = redirect users
+//false/false = ok
+
+const Routes: React.FC<RouteProps> = ({
+  isPrivate = false,
+  component: Component,
+  ...rest
+}) => {
+  const { user } = useAuth();
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/user/edit/:id" component={Home} />
-      <Route path="/user/create" component={InsertUser} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={SignUp} />
-    </Switch>
+    <ReactDOMRoute
+      {...rest}
+      render={() => {
+        return isPrivate === !!user ? (
+          <Component />
+        ) : (
+          <Redirect to={{ pathname: isPrivate ? '/' : '/users' }} />
+        );
+      }}
+    />
   );
 };
 
