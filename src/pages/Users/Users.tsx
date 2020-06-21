@@ -6,8 +6,6 @@ import bwlogo from '../../assets/bwlogo.svg';
 import Logout from '../../components/Logout/Logout';
 import { Container } from './styles';
 import SearchInput from '../../components/Input/SearchInput/SearchInput';
-import { Form } from '@unform/web';
-import { FiSearch } from 'react-icons/fi';
 
 const Users: React.FC = () => {
   const { signOut } = useAuth();
