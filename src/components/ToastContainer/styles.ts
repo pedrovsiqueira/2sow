@@ -38,8 +38,11 @@ export const Toast = styled.div<ToastProps>`
   padding: 16px 30px 16px 16px;
   border-radius: 17px;
   display: flex;
-
   background: #ecf0f3;
+
+  & + div {
+    margin-top: 8px;
+  }
 
   ${(props) => toastTypeVartiations[props.type || 'info']}
 
@@ -67,4 +70,14 @@ export const Toast = styled.div<ToastProps>`
     background: transparent;
     color: inherit;
   }
+
+  ${(props) =>
+    !props.hasDescription &&
+    css`
+      align-items: center;
+
+      svg {
+        margin-top: 0;
+      }
+    `}
 `;

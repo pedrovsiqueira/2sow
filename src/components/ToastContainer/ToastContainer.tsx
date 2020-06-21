@@ -33,7 +33,6 @@ const ToastContainer = () => {
         <FiAlertCircle size={20} />
         <div>
           <strong></strong>
-          <p></p>
         </div>
 
         <button type="button">
