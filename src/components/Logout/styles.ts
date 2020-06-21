@@ -6,6 +6,7 @@ export const Container = styled.div`
   }
 
   button {
+    background-color: transparent;
     width: 104px;
     height: 36px;
     letter-spacing: 0.02em;

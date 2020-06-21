@@ -9,7 +9,6 @@ import { Container } from './styles';
 const Users: React.FC = () => {
   const { signOut } = useAuth();
 
-  const handleSignOut = useCallback(() => {}, []);
   return (
     <Container>
       <nav>
@@ -17,7 +16,7 @@ const Users: React.FC = () => {
           <img src={bwlogo} alt="bw logo" />
         </figure>
 
-        <Logout onClick={handleSignOut} />
+        <Logout onClick={signOut} />
       </nav>
       <h1>this is my users page</h1>
     </Container>
