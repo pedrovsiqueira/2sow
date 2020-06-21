@@ -39,12 +39,12 @@ const AuthProvider: React.FC = ({ children }) => {
       password,
     });
 
-    const responseUser = await api.get(`users?email=${email}`);
+    const { data } = await api.get(`users?email=${email}`);
 
     const user = {
-      userEmail: responseUser.data[0].email,
-      userId: responseUser.data[0].id,
-      userPassword: responseUser.data[0].password,
+      userEmail: data[0].email,
+      userId: data[0].id,
+      userPassword: data[0].password,
     };
 
     const { accessToken } = response.data;

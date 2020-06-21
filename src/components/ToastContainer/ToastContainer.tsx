@@ -8,8 +8,8 @@ const ToastContainer = () => {
       <Toast hasDescription>
         <FiAlertCircle size={20} />
         <div>
-          <strong></strong>
-          <p></p>
+          <strong>ERROR! problema no login</strong>
+          <p>user e senha errado</p>
         </div>
 
         <button type="button">
@@ -20,8 +20,8 @@ const ToastContainer = () => {
       <Toast hasDescription type="error">
         <FiAlertCircle size={20} />
         <div>
-          <strong></strong>
-          <p></p>
+          <strong>ERROR! problema no login</strong>
+          <p>user e senha errado</p>
         </div>
 
         <button type="button">
@@ -32,7 +32,7 @@ const ToastContainer = () => {
       <Toast type="success" hasDescription={false}>
         <FiAlertCircle size={20} />
         <div>
-          <strong></strong>
+          <strong>Tudo certo meu amigo</strong>
         </div>
 
         <button type="button">
