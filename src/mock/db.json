@@ -20,6 +20,12 @@
       "password": "$2a$10$7ihhpbWeXnwFZiR/3UUb0uIkY2AQ8LRpcG5KqWOACmOcgpzJ0lN7.",
       "confirmEmail": "pedrovsiqueira@gmail.com",
       "id": 4
+    },
+    {
+      "email": "i.r.pedro3@gmail.com",
+      "password": "$2a$10$UbM7k66TONfYWTYwYupzhe.LH63K1WCUusuCJJV/h98bzMO15BlIi",
+      "confirmEmail": "i.r.pedro3@gmail.com",
+      "id": 5
     }
   ],
   "usuarios": [

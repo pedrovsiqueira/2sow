@@ -3,10 +3,10 @@ import { Switch } from 'react-router-dom';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import SignUp from '../pages/SignUp/SignUp';
-import InsertUser from '../pages/InsertUser/InsertUser';
+import InsertUser2 from '../pages/InsertUser/InsertUser';
 import EditUser from '../pages/EditUser/EditUser';
 import Users from '../pages/Users/Users';
-import Route from '../Routes/Route'
+import Route from '../Routes/Route';
 
 const Routes: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const Routes: React.FC = () => {
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
       <Route path="/users/edit/:id" component={EditUser} isPrivate />
-      <Route path="/users/create" component={InsertUser} isPrivate />
+      <Route path="/users/create" component={InsertUser2} isPrivate />
       <Route path="/users/" component={Users} isPrivate />
     </Switch>
   );
