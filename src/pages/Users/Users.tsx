@@ -5,9 +5,14 @@ import { useAuth } from '../../hooks/auth';
 import bwlogo from '../../assets/bwlogo.svg';
 import Logout from '../../components/Logout/Logout';
 import { Container } from './styles';
+import Input from '../../components/Input/Input2';
+import { Form } from '@unform/web';
+import { FiSearch } from 'react-icons/fi';
 
 const Users: React.FC = () => {
   const { signOut } = useAuth();
+
+  const handleSearch = () => {};
 
   return (
     <Container>
@@ -18,7 +23,15 @@ const Users: React.FC = () => {
 
         <Logout onClick={signOut} />
       </nav>
-      <h1>this is my users page</h1>
+
+      <main>
+        <h1>listagem</h1>
+        <p>Confira aqui a sua lista de usuários cadastrados</p>
+      </main>
+      
+      <Form onSubmit={handleSearch}>
+        <Input name="search" />
+      </Form>
     </Container>
   );
 };

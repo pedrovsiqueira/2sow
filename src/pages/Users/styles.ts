@@ -10,4 +10,26 @@ export const Container = styled.div`
     justify-content: space-around;
     align-items: center;
   }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    outline: 1px solid red;
+
+    h1 {
+      letter-spacing: 0.02em;
+      font-variant: small-caps;
+      font-weight: 600;
+      font-size: 3.6rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+      letter-spacing: 0.02em;
+      width: 334px;
+    }
+  }
 `;
