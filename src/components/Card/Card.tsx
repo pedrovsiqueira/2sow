@@ -2,8 +2,10 @@ import React from 'react';
 import { Container } from './styles';
 import editIcon from '../../assets/edit-icon.svg';
 import trashIcon from '../../assets/trash-icon.svg';
+import api from '../../services/api'
 
-const Card: React.FC = () => {
+const Card: React.FC = ({ children }) => {
+  const cardResults = api.get('/usuarios')
   return (
     <Container>
       <main>
