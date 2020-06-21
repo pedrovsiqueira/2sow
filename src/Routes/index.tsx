@@ -1,11 +1,12 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import SignUp from '../pages/SignUp/SignUp';
 import InsertUser from '../pages/InsertUser/InsertUser';
 import EditUser from '../pages/EditUser/EditUser';
 import Users from '../pages/Users/Users';
+import Route from '../Routes/Route'
 
 const Routes: React.FC = () => {
   return (
