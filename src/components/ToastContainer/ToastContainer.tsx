@@ -1,6 +1,11 @@
 import React from 'react';
 import { FiAlertCircle, FiXCircle } from 'react-icons/fi';
 import { Container, Toast } from './styles';
+import { ToastMessage } from '../../hooks/toast';
+
+interface ToastContainerProps {
+  messages: ToastMessage;
+}
 
 const ToastContainer = () => {
   return (
