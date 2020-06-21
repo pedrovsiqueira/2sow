@@ -27,9 +27,13 @@ const Users: React.FC = () => {
       <main>
         <h1>listagem</h1>
         <p>Confira aqui a sua lista de usuários cadastrados</p>
+        <SearchInput
+          type="text"
+          placeholder="Digite um nome"
+          onChange={handleSearch}
+          name="search"
+        />
       </main>
-
-      <SearchInput type="text" placeholder="Digite um nome" onChange={handleSearch} name="search" />
     </Container>
   );
 };
