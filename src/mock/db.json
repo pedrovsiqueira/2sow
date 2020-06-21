@@ -14,6 +14,12 @@
       "email": "123@123.com",
       "password": "$2a$10$FRi/2I3hQyf8NwsOCx79/OkgVpqZLT2.x89HoZEaWMmwC9ul7AV.K",
       "id": 3
+    },
+    {
+      "email": "pedrovsiqueira@gmail.com",
+      "password": "$2a$10$7ihhpbWeXnwFZiR/3UUb0uIkY2AQ8LRpcG5KqWOACmOcgpzJ0lN7.",
+      "confirmEmail": "pedrovsiqueira@gmail.com",
+      "id": 4
     }
   ],
   "usuarios": [
