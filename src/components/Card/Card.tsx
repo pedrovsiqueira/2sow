@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Container } from './styles';
 import editIcon from '../../assets/edit-icon.svg';
 import trashIcon from '../../assets/trash-icon.svg';
+import { Link } from 'react-router-dom';
 
 interface EnderecoProps {
   cidade: string;
@@ -14,6 +15,7 @@ export interface CardData {
   id: number;
   endereco: EnderecoProps;
   handleDelete: (id: number) => void;
+  handleEdit: (id: number) => void;
 }
 
 const Card: React.FC<CardData> = ({
@@ -23,12 +25,15 @@ const Card: React.FC<CardData> = ({
   endereco,
   id,
   handleDelete,
+  handleEdit,
 }) => {
   return (
     <Container>
       <header>
         <h3>{nome}</h3>
-        <img src={editIcon} alt="edit icon" />
+        <Link to={`/users/edit/${id}`}>
+          <img src={editIcon} alt="edit icon" />
+        </Link>
       </header>
 
       <section>

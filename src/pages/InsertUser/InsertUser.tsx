@@ -31,6 +31,8 @@ const InsertUser = () => {
   const [rua, setRua] = useState('');
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [cep, setCep] = useState('');
 
   const handleSubmit = async (data: inputValuesDTO) => {
     const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
@@ -59,13 +61,32 @@ const InsertUser = () => {
 
   const handleChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    if (value.length < 7) return;
 
-    const { data } = await apiViaCep.get(`${value}/json`);
+    const formattedValue = value
+      .replace(/\D/g, '')
+      .replace(/(\d{5})(\d)/, '$1-$2')
+      .replace(/(-\d{3})\d+?$/, '$1');
 
+    setCep(formattedValue);
+
+    if (value.length !== 9) return;
+
+    const { data } = await apiViaCep.get(`${formattedValue}/json`);
     setRua(data.logradouro);
     setBairro(data.bairro);
     setCidade(data.localidade);
+  }, []);
+
+  const handleCpf = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    const formattedValue = value
+      .replace(/\D/g, '')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d{1,2})/, '$1-$2')
+      .replace(/(-\d{2})\d+?$/, '$1');
+
+    setCpf(formattedValue);
   }, []);
 
   return (
@@ -82,14 +103,21 @@ const InsertUser = () => {
               alteradas no futuro.
             </p>
             <Input label="nome" type="text" placeholder="nome" name="nome" />
-            <Input label="cpf" type="text" placeholder="cpf" name="cpf" />
+            <Input
+              onChange={handleCpf}
+              label="cpf"
+              type="text"
+              placeholder="cpf"
+              name="cpf"
+              value={cpf}
+            />
             <Input label="email" type="text" placeholder="email" name="email" />
           </fieldset>
           <fieldset>
             <legend>endereço</legend>
             <p>
-              Atenção no preenchimento. Estas informações não poderão ser
-              alteradas no futuro.
+              As informações a seguir poderão ser alteradas após serem
+              inseridas.
             </p>
             <Input
               handleChange={handleChange}
@@ -97,6 +125,7 @@ const InsertUser = () => {
               type="text"
               placeholder="cep"
               name="cep"
+              value={cep}
             />
             <Input
               defaultValue={rua}
