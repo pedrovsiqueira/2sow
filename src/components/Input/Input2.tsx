@@ -52,6 +52,7 @@ const Input2: React.FC<InputProps> = ({
       <Container
         isErrored={!!error}
         isFocused={isFocused}
+        data-testid="input-container"
       >
         <StyledInput
           isErrored={!!error}

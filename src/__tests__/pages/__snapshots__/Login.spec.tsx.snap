@@ -35,6 +35,7 @@ exports[`Login Page renders without crashing 1`] = `
           </label>
           <div
             class="sc-AxirZ cmRqOQ"
+            data-testid="input-container"
           >
             <input
               class="sc-AxiKw foiNIc"
@@ -52,6 +53,7 @@ exports[`Login Page renders without crashing 1`] = `
           </label>
           <div
             class="sc-AxirZ cmRqOQ"
+            data-testid="input-container"
           >
             <input
               class="sc-AxiKw foiNIc"
