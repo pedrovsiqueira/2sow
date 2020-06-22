@@ -10,14 +10,11 @@ export const Container = styled.div`
   align-items: center;
 
   figure {
-    text-align: center;
-  }
-
-  img {
     background: #fefefe;
     box-shadow: 18px 18px 30px #d1d9e6, -18px -18px 30px #ffffff;
     border-radius: 14px;
     padding: 21px 58px;
+    text-align: center;
   }
 
   section {
@@ -46,4 +43,10 @@ export const Container = styled.div`
       display: block;
     }
   }
+`;
+
+export const GoBackStyled = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 8vw;
 `;

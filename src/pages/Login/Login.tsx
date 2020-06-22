@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
-import { Container } from './styles';
+import { Container, GoBackStyled } from './styles';
 import { Form } from '@unform/web';
 import { FiAlertCircle } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
@@ -11,6 +11,7 @@ import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 import { useHistory } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
+import backIcon from '../../assets/back-icon.svg';
 
 interface SignInFormData {
   email: string;
@@ -66,6 +67,10 @@ const Login: React.FC = () => {
   );
   return (
     <Container>
+      <GoBackStyled onClick={history.goBack}>
+        <img src={backIcon} alt="back icon" />
+      </GoBackStyled>
+
       <main>
         <figure>
           <img src={logo} alt="logo" />

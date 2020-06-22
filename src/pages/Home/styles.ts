@@ -11,7 +11,8 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 100vw;
+  width: 100%;
+  max-width: 411px;
   h1 {
     margin: 87px 0;
     text-align: center;
