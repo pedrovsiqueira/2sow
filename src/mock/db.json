@@ -89,6 +89,32 @@
         "cidade": "Goiânia"
       },
       "id": 2
+    },
+    {
+      "nome": "Pedro Siqueira",
+      "cpf": "043.529.261-75",
+      "email": "pedro.v.siqueira@gmail.com",
+      "endereco": {
+        "cep": "74565-019",
+        "rua": "Avenida Rio Branco",
+        "numero": "",
+        "bairro": "Panorama Parque",
+        "cidade": "Goiânia"
+      },
+      "id": 3
+    },
+    {
+      "nome": "pedro costa",
+      "cpf": "000.000.000-00",
+      "email": "pedro@gmail.com",
+      "endereco": {
+        "cep": "74565-019",
+        "rua": "Avenida Rio Branco",
+        "numero": "1",
+        "bairro": "Panorama Parque",
+        "cidade": "Goiânia"
+      },
+      "id": 4
     }
   ]
 }

@@ -7,6 +7,9 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { Container, StyledButton } from './styles';
 import Nav from '../../components/Nav/Nav';
+import getValidationErrors from '../../utils/getValidationErrors';
+import { useToast } from '../../hooks/toast';
+
 import * as Yup from 'yup';
 
 interface inputValuesDTO {
@@ -21,6 +24,8 @@ interface inputValuesDTO {
 }
 
 const InsertUser = () => {
+  const { addToast } = useToast();
+
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
   const [rua, setRua] = useState('');
@@ -30,27 +35,63 @@ const InsertUser = () => {
   const [cep, setCep] = useState('');
 
   const handleSubmit = useCallback(async (data: inputValuesDTO) => {
-    
     try {
-          const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
+      const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
 
-    const newUser = {
-      nome,
-      cpf,
-      email,
-      endereco: {
-        cep,
-        rua,
-        numero,
-        bairro,
-        cidade,
-      },
-    };
+      formRef.current?.setErrors({});
+
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .required('Email obrigatório')
+          .email('Digite um e-mail válido'),
+        cpf: Yup.string().min(14, 'Mínimo 11 digitos'),
+        nome: Yup.string().required('Nome obrigatório'),
+        cep: Yup.string().required('CEP obrigatório'),
+        rua: Yup.string().required('Rua obrigatório'),
+        bairro: Yup.string().required('Bairro obrigatório'),
+        cidade: Yup.string().required('cidade obrigatório'),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      const newUser = {
+        nome,
+        cpf,
+        email,
+        endereco: {
+          cep,
+          rua,
+          numero,
+          bairro,
+          cidade,
+        },
+      };
       const response = await api.post('usuarios', newUser);
       console.log(response);
       history.push('/users');
+
+      addToast({
+        type: 'success',
+        description:
+          'Usuário criado com sucesso',
+        title: 'Sucesso na criação',
+      });
+
     } catch (err) {
-      
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidationErrors(err);
+        formRef.current?.setErrors(errors);
+        return;
+      }
+      window.scrollTo(0, 0);
+      addToast({
+        type: 'error',
+        description:
+          'Ocorreu um erro ao cadastrar o usuário, verifique servidor',
+        title: 'Erro no servidor',
+      });
     }
   }, []);
 
