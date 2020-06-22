@@ -82,10 +82,10 @@
       "cpf": "000.000.000-00",
       "email": "fabriciodev@gmail.com",
       "endereco": {
-        "cep": "74255-220",
-        "rua": "Avenida T 9",
-        "numero": "0",
-        "bairro": "Jardim América",
+        "cep": "74565-019",
+        "rua": "Avenida Rio Branco",
+        "numero": "",
+        "bairro": "Panorama Parque",
         "cidade": "Goiânia"
       },
       "id": 2
@@ -115,6 +115,19 @@
         "cidade": "Goiânia"
       },
       "id": 4
+    },
+    {
+      "nome": "paulo junior",
+      "cpf": "000.000.000-00",
+      "email": "paulo@gmail.com",
+      "endereco": {
+        "cep": "74565-019",
+        "rua": "Avenida Rio Branco",
+        "numero": "",
+        "bairro": "Panorama Parque",
+        "cidade": "Goiânia"
+      },
+      "id": 5
     }
   ]
 }

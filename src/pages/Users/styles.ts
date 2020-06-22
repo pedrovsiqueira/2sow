@@ -90,6 +90,7 @@ export const PageControls = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
+  margin-bottom: 120px;
 
   button {
     margin: 30px 20px 110px;

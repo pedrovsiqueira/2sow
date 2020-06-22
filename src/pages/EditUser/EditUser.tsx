@@ -13,6 +13,9 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { Container, StyledButton } from './styles';
 import Nav from '../../components/Nav/Nav';
+import getValidationErrors from '../../utils/getValidationErrors';
+import { useToast } from '../../hooks/toast';
+import * as Yup from 'yup';
 
 interface inputValuesDTO {
   nome: string;
@@ -26,6 +29,8 @@ interface inputValuesDTO {
 }
 
 const EditUser = () => {
+  const { addToast } = useToast();
+
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
   const { id } = useParams();
@@ -38,30 +43,58 @@ const EditUser = () => {
   const [email, setEmail] = useState('');
   const [nome, setNome] = useState('');
 
-  const handleSubmit = async (data: inputValuesDTO) => {
-    const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
-
-    console.log(data);
-    const editUser = {
-      nome,
-      cpf,
-      email,
-      endereco: {
-        cep,
-        rua,
-        numero,
-        bairro,
-        cidade,
-      },
-    };
+  const handleSubmit = useCallback(async (data: inputValuesDTO) => {
     try {
+      const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
+
+      formRef.current?.setErrors({});
+
+      const schema = Yup.object().shape({
+        cep: Yup.string().min(9, 'Mínimo 8 digitos'),
+        rua: Yup.string().required('Rua obrigatório'),
+        bairro: Yup.string().required('Bairro obrigatório'),
+        cidade: Yup.string().required('cidade obrigatório'),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      const editUser = {
+        nome,
+        cpf,
+        email,
+        endereco: {
+          cep,
+          rua,
+          numero,
+          bairro,
+          cidade,
+        },
+      };
       const response = await api.put(`usuarios/${id}`, editUser);
-      console.log(response);
       history.push('/users');
+
+      addToast({
+        type: 'success',
+        description: 'Usuário editado com sucesso',
+        title: 'Sucesso na edição',
+      });
     } catch (err) {
-      console.log(err);
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidationErrors(err);
+        formRef.current?.setErrors(errors);
+        return;
+      }
+      window.scrollTo(0, 0);
+      addToast({
+        type: 'error',
+        description:
+          'Ocorreu um erro ao cadastrar o usuário, verifique servidor',
+        title: 'Erro no servidor',
+      });
     }
-  };
+  }, []);
 
   const handleChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;

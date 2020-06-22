@@ -46,7 +46,7 @@ const InsertUser = () => {
           .email('Digite um e-mail válido'),
         cpf: Yup.string().min(14, 'Mínimo 11 digitos'),
         nome: Yup.string().required('Nome obrigatório'),
-        cep: Yup.string().min(9, 'Mínimo 9 digitos'),
+        cep: Yup.string().min(9, 'Mínimo 8 digitos'),
         rua: Yup.string().required('Rua obrigatório'),
         bairro: Yup.string().required('Bairro obrigatório'),
         cidade: Yup.string().required('cidade obrigatório'),
@@ -69,7 +69,6 @@ const InsertUser = () => {
         },
       };
       const response = await api.post('usuarios', newUser);
-      console.log(response);
       history.push('/users');
 
       addToast({
