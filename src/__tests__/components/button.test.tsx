@@ -8,8 +8,3 @@ it('Renders a button checking props without crashing', () => {
   const { getByText } = render(<Button>My Button Test</Button>);
   expect(getByText('My Button Test')).toBeDefined()
 });
-
-it('Verifies if a button was changed', () => {
-  const {asFragment} = render(<Button>My Button Test</Button>)
-  expect(asFragment()).toMatchSnapshot()
-})
