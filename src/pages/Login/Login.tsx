@@ -86,11 +86,13 @@ const Login: React.FC = () => {
               label="email"
               name="email"
               placeholder="exemplo@gmail.com"
+              data-testid="email"
             />
           </section>
 
           <section>
             <Input
+              data-testid="password"
               label="senha"
               icon={FiAlertCircle}
               name="password"
@@ -100,7 +102,7 @@ const Login: React.FC = () => {
           </section>
         </section>
         <div>
-          <Button>entrar</Button>
+          <Button data-testid="login">entrar</Button>
         </div>
       </Form>
     </Container>
