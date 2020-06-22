@@ -12,7 +12,7 @@ export const Container = styled.div`
   @media (max-width: 414px) {
     margin-top: 82px;
   }
-  
+
   figure {
     text-align: center;
     background: #fefefe;
@@ -21,7 +21,14 @@ export const Container = styled.div`
     padding: 21px 58px;
   }
 
+  form {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 40px;
+  }
+
   section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

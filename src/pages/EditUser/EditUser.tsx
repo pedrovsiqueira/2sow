@@ -108,10 +108,6 @@ const EditUser = () => {
         <Form ref={formRef} onSubmit={handleSubmit}>
           <fieldset>
             <legend>dados pessoais</legend>
-            <p>
-              Atenção no preenchimento. Estas informações não poderão ser
-              alteradas no futuro.
-            </p>
             <Input
               disabled
               label="nome"
@@ -139,10 +135,6 @@ const EditUser = () => {
           </fieldset>
           <fieldset>
             <legend>endereço</legend>
-            <p>
-              Atenção no preenchimento. Estas informações não poderão ser
-              alteradas no futuro.
-            </p>
             <Input
               handleChange={handleChange}
               label="cep"

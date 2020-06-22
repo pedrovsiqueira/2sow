@@ -17,6 +17,12 @@ export const Container = styled.div`
     text-align: center;
   }
 
+  form{
+    width: 100%;
+    max-width: 400px;
+    padding: 0 40px;
+  }
+
   section {
     width: 100%;
     display: flex;
