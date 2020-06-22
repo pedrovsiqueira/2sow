@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.article`
   width: 334px;
   background: #ecf0f3;
   box-shadow: 18px 18px 30px #d1d9e6, -18px -18px 30px #ffffff;
@@ -9,6 +9,17 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 24px;
+  margin: 0 auto;
+
+  img {
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      filter: saturate(250%);
+      transition: all 0.2s ease;
+    }
+  }
 
   header {
     display: flex;

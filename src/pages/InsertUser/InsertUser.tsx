@@ -1,11 +1,13 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import Input from '../../components/Input/Input';
+import React, { useState, ChangeEvent, FormEvent, useRef } from 'react';
+import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
+import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 
 interface inputValuesDTO {
-  name: string;
+  nome: string;
   cpf: string;
   email: string;
   cep: string;
@@ -16,31 +18,15 @@ interface inputValuesDTO {
 }
 
 const InsertUser = () => {
-  const [inputValues, setInputValues] = useState<inputValuesDTO>({
-    name: '',
-    cpf: '',
-    email: '',
-    cep: '',
-    rua: '',
-    numero: 0,
-    bairro: '',
-    cidade: '',
-  });
-
+  const formRef = useRef<FormHandles>(null);
   const history = useHistory();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setInputValues({
-      ...inputValues,
-      [name]: value,
-    });
-  };
+  const handleSubmit = async (data: inputValuesDTO) => {
+    const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+    console.log(data);
     const newUser = {
-      name,
+      nome,
       cpf,
       email,
       endereco: {
@@ -52,35 +38,26 @@ const InsertUser = () => {
       },
     };
     try {
-      await api.post('usuarios', newUser);
-      history.push('/');
+      const response = await api.post('usuarios', newUser);
+      console.log(response);
+      history.push('/users');
     } catch (err) {
       console.log(err);
     }
   };
 
-  const { name, cpf, email, cep, rua, numero, bairro, cidade } = inputValues;
   return (
-    <form onSubmit={handleSubmit}>
-      <Input name="name" value={name} handleChange={handleChange} />
-      <Input name="cpf" value={cpf} handleChange={handleChange} />
-      <Input name="email" value={email} handleChange={handleChange} />
-      <Input name="cep" value={cep} handleChange={handleChange} />
-      <Input name="rua" value={rua} handleChange={handleChange} />
-      <Input name="numero" value={numero} handleChange={handleChange} />
-      <Input name="bairro" value={bairro} handleChange={handleChange} />
-      <Input name="cidade" value={cidade} handleChange={handleChange} />
-
-      {/* {Object.keys(inputValues).map((item) => (
-        <Input
-          name={item}
-          value={inputValues[item]}
-          handleChange={handleChange}
-          key={item}
-        />
-      ))} */}
+    <Form ref={formRef} onSubmit={handleSubmit}>
+      <Input type="text" placeholder="nome" name="nome" />
+      <Input type="text" placeholder="cpf" name="cpf" />
+      <Input type="text" placeholder="email" name="email" />
+      <Input type="text" placeholder="cep" name="cep" />
+      <Input type="text" placeholder="rua" name="rua" />
+      <Input type="number" placeholder="numero" name="numero" />
+      <Input type="text" placeholder="bairro" name="bairro" />
+      <Input type="text" placeholder="cidade" name="cidade" />
       <Button>inserir</Button>
-    </form>
+    </Form>
   );
 };
 

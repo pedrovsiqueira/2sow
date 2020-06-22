@@ -17,10 +17,4 @@ export const StyledButton = styled.button`
     box-shadow: 18px 18px 30px #d1d9e6, -18px -18px 30px #ffffff;
     border-radius: 17px;
   }
-
-  :focus {
-    background: #2a2a2a;
-    border-radius: 17px;
-    color: #ecf0f3;
-  }
 `;

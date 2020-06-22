@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Container } from './styles';
 import editIcon from '../../assets/edit-icon.svg';
 import trashIcon from '../../assets/trash-icon.svg';
-import { editUser, deleteUser } from '../../services/users';
 
 interface EnderecoProps {
   cidade: string;
@@ -14,9 +13,17 @@ export interface CardData {
   email: string;
   id: number;
   endereco: EnderecoProps;
+  handleDelete: (id: number) => void;
 }
 
-const Card: React.FC<CardData> = ({ nome, cpf, email, endereco, id }) => {
+const Card: React.FC<CardData> = ({
+  nome,
+  cpf,
+  email,
+  endereco,
+  id,
+  handleDelete,
+}) => {
   return (
     <Container>
       <header>
@@ -31,7 +38,11 @@ const Card: React.FC<CardData> = ({ nome, cpf, email, endereco, id }) => {
 
       <footer>
         <p>{endereco.cidade}</p>
-        <img onClick={() => deleteUser(id)} src={trashIcon} alt="trash icon" />
+        <img
+          onClick={() => handleDelete(id)}
+          src={trashIcon}
+          alt="trash icon"
+        />
       </footer>
     </Container>
   );

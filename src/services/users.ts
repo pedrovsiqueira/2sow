@@ -1,4 +1,5 @@
 import api from '../services/api';
+import { AxiosResponse } from 'axios';
 
 interface EnderecoProps {
   cidade: string;
@@ -11,10 +12,13 @@ export interface CardData {
   endereco: EnderecoProps;
 }
 
-export const deleteUser = async (id: number) => {
+export const deleteUser = async (id: number): Promise<AxiosResponse> => {
   return await api.delete(`/usuarios/${id}`);
 };
 
-export const editUser = async (id: number, data: CardData) => {
+export const editUser = async (
+  id: number,
+  data: CardData
+): Promise<AxiosResponse> => {
   return await api.put(`/usuarios/${id}`, data);
 };
