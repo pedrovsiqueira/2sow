@@ -19,18 +19,20 @@ export interface CardData {
 const Card: React.FC<CardData> = ({ nome, cpf, email, endereco, id }) => {
   return (
     <Container>
-      <main>
+      <header>
         <h3>{nome}</h3>
         <img src={editIcon} alt="edit icon" />
-      </main>
-
-      <p>{cpf}</p>
-      <p>{email}</p>
+      </header>
 
       <section>
+        <p>{cpf}</p>
+        <p>{email}</p>
+      </section>
+
+      <footer>
         <p>{endereco.cidade}</p>
         <img onClick={() => deleteUser(id)} src={trashIcon} alt="trash icon" />
-      </section>
+      </footer>
     </Container>
   );
 };
