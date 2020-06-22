@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container } from './styles';
 import editIcon from '../../assets/edit-icon.svg';
 import trashIcon from '../../assets/trash-icon.svg';
-import api from '../../services/api'
+import { editUser, deleteUser } from '../../services/users';
 
-const Card: React.FC = ({ children }) => {
-  const cardResults = api.get('/usuarios')
+interface EnderecoProps {
+  cidade: string;
+}
+
+export interface CardData {
+  nome: string;
+  cpf: string;
+  email: string;
+  id: number;
+  endereco: EnderecoProps;
+}
+
+const Card: React.FC<CardData> = ({ nome, cpf, email, endereco, id }) => {
   return (
     <Container>
       <main>
-        <h3>Pedro siqueira</h3>
+        <h3>{nome}</h3>
         <img src={editIcon} alt="edit icon" />
       </main>
 
-      <p>043.529.261-75</p>
-      <p>pedro@gmail.com</p>
+      <p>{cpf}</p>
+      <p>{email}</p>
 
       <section>
-        <p>Goiânia/Go</p>
-        <img src={trashIcon} alt="trash icon" />
+        <p>{endereco.cidade}</p>
+        <img onClick={() => deleteUser(id)} src={trashIcon} alt="trash icon" />
       </section>
     </Container>
   );

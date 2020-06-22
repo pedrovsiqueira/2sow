@@ -64,58 +64,5 @@
       "id": 11
     }
   ],
-  "usuarios": [
-    {
-      "nome": "foo bar",
-      "cpf": "213.123.123-45",
-      "email": "foo_bar@email.com",
-      "endereco": {
-        "cep": 13454000,
-        "rua": "rua talvez",
-        "numero": 785,
-        "bairro": "bairro azul",
-        "cidade": "cidade eterna"
-      },
-      "id": 1
-    },
-    {
-      "name": "fdfdafasd",
-      "cpf": "dsfsadfdsa",
-      "email": "asdfsdafasdfa",
-      "endereco": {
-        "cep": "adfasdfdsa",
-        "rua": "dsafasdfasd",
-        "numero": 0,
-        "bairro": "dfasdfasd",
-        "cidade": "dafasdfasdf"
-      },
-      "id": 2
-    },
-    {
-      "name": "",
-      "cpf": "",
-      "email": "",
-      "endereco": {
-        "cep": "",
-        "rua": "",
-        "numero": 0,
-        "bairro": "",
-        "cidade": ""
-      },
-      "id": 3
-    },
-    {
-      "name": "",
-      "cpf": "",
-      "email": "",
-      "endereco": {
-        "cep": "",
-        "rua": "",
-        "numero": 0,
-        "bairro": "",
-        "cidade": ""
-      },
-      "id": 4
-    }
-  ]
+  "usuarios": []
 }

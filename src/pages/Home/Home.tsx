@@ -9,10 +9,12 @@ const Home = () => {
   return (
     <Container>
       <Content>
+
         <figure>
           <img src={logo} alt="logo" />
         </figure>
         <h1>Seja bem vindo.</h1>
+
         <section>
           <Link to="/login">
             <Button>login</Button>
@@ -21,6 +23,7 @@ const Home = () => {
             <Button>sign up</Button>
           </Link>
         </section>
+        
       </Content>
     </Container>
   );

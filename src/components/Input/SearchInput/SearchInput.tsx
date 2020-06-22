@@ -1,15 +1,9 @@
-import React, {
-  InputHTMLAttributes,
-  useState,
-  useCallback,
-  useRef,
-} from 'react';
+import React, { InputHTMLAttributes, useState, useCallback } from 'react';
 import { StyledInput } from './styles';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
 const SearchInput: React.FC<InputProps> = (props) => {
-  const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
 
   const handleInputFocus = useCallback(() => {
@@ -25,7 +19,6 @@ const SearchInput: React.FC<InputProps> = (props) => {
       isFocused={isFocused}
       onFocus={handleInputFocus}
       onBlur={handleInputBlur}
-      ref={inputRef}
       {...props}
     ></StyledInput>
   );

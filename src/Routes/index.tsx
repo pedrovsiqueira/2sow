@@ -6,7 +6,7 @@ import SignUp from '../pages/SignUp/SignUp';
 import InsertUser2 from '../pages/InsertUser/InsertUser';
 import EditUser from '../pages/EditUser/EditUser';
 import Users from '../pages/Users/Users';
-import Route from '../Routes/Route';
+import Route from './Route';
 
 const Routes: React.FC = () => {
   return (
