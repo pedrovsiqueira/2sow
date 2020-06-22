@@ -30,7 +30,9 @@ const InsertUser = () => {
   const [cep, setCep] = useState('');
 
   const handleSubmit = useCallback(async (data: inputValuesDTO) => {
-    const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
+    
+    try {
+          const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
 
     const newUser = {
       nome,
@@ -44,12 +46,11 @@ const InsertUser = () => {
         cidade,
       },
     };
-    try {
       const response = await api.post('usuarios', newUser);
       console.log(response);
       history.push('/users');
     } catch (err) {
-      console.log(err);
+      
     }
   }, []);
 
