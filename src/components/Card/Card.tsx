@@ -14,8 +14,8 @@ export interface CardData {
   email: string;
   id: number;
   endereco: EnderecoProps;
-  handleDelete: (id: number) => void;
   handleEdit: (id: number) => void;
+  handleModal: (boolean: boolean, id: number) => void;
 }
 
 const Card: React.FC<CardData> = ({
@@ -24,8 +24,8 @@ const Card: React.FC<CardData> = ({
   email,
   endereco,
   id,
-  handleDelete,
   handleEdit,
+  handleModal
 }) => {
   return (
     <Container>
@@ -44,7 +44,7 @@ const Card: React.FC<CardData> = ({
       <footer>
         <p>{endereco.cidade}</p>
         <img
-          onClick={() => handleDelete(id)}
+          onClick={() => handleModal(true, id)}
           src={trashIcon}
           alt="trash icon"
         />

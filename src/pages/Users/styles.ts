@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface IProps {
+  isShowing: boolean;
+}
+
 export const Container = styled.div`
   width: 100vw;
 
@@ -47,7 +51,7 @@ export const Container = styled.div`
     }
   }
 
-  span {
+  & > span {
     width: 100%;
     min-height: calc(100vh - 552.279px);
     margin-top: 60px;
@@ -98,4 +102,73 @@ export const PageControls = styled.div`
       margin: 30px 20px;
     }
   }
+`;
+
+export const Modal = styled.div<IProps>`
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: #ecf0f3;
+  border-radius: 17px;
+
+  padding: 30px;
+
+  width: 350px;
+  height: 258px;
+
+  display: ${(props) => (props.isShowing ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  & > figure {
+    align-self: flex-end;
+  }
+
+  & > p {
+    font-size: 1.8rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  & > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > span {
+      display: block;
+      padding: 10px 18px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      font-variant: small-caps;
+    }
+
+    & > button {
+      font-size: 2.6rem;
+      width: 154px;
+      height: 48px;
+      background-color: #f8a186;
+      box-shadow: none;
+      color: #ecf0f3;
+
+      &:hover {
+        background-color: #f8a186;
+      }
+    }
+  }
+`;
+
+export const Overlay = styled.div<IProps>`
+  display: ${(props) => (props.isShowing ? 'block' : 'none')};
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 90;
 `;
