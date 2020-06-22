@@ -40,6 +40,12 @@ export const Container = styled.div<StyledProps>`
         color: #a2a2a2;
       }
     `}
+
+    & :disabled {
+    background: #d1d9e6;
+    color: #5c5c5c;
+    border-radius: 17px;
+  }
 `;
 
 export const StyledInput = styled.input<StyledProps>`

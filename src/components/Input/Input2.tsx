@@ -49,7 +49,10 @@ const Input2: React.FC<InputProps> = ({
   return (
     <>
       <StyledLabel htmlFor={name}>{label}</StyledLabel>
-      <Container isErrored={!!error} isFocused={isFocused}>
+      <Container
+        isErrored={!!error}
+        isFocused={isFocused}
+      >
         <StyledInput
           isErrored={!!error}
           onFocus={handleInputFocus}
