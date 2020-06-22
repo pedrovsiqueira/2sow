@@ -46,7 +46,7 @@ const InsertUser = () => {
           .email('Digite um e-mail válido'),
         cpf: Yup.string().min(14, 'Mínimo 11 digitos'),
         nome: Yup.string().required('Nome obrigatório'),
-        cep: Yup.string().required('CEP obrigatório'),
+        cep: Yup.string().min(9, 'Mínimo 9 digitos'),
         rua: Yup.string().required('Rua obrigatório'),
         bairro: Yup.string().required('Bairro obrigatório'),
         cidade: Yup.string().required('cidade obrigatório'),
@@ -74,11 +74,9 @@ const InsertUser = () => {
 
       addToast({
         type: 'success',
-        description:
-          'Usuário criado com sucesso',
+        description: 'Usuário criado com sucesso',
         title: 'Sucesso na criação',
       });
-
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
