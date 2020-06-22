@@ -68,21 +68,27 @@
       "password": "$2a$10$bjY9EN8xRgOEThndxui11.IqM/cCkOk/TgoPmiPIBmMY2kJTA9jVq",
       "confirmEmail": "ricky@gmail.com",
       "id": 12
+    },
+    {
+      "email": "thiago.dev@gmail.com",
+      "password": "$2a$10$dz4bYg.vK7aEEkkxzmvTSepvMFlJOEm/yPpx905fI85yjvkmS78Oq",
+      "confirmEmail": "thiago.dev@gmail.com",
+      "id": 13
     }
   ],
   "usuarios": [
     {
-      "nome": "Ricky Almeida",
-      "cpf": "043.259.222-22",
-      "email": "pedrorickydev@gmail.com",
+      "nome": "Fabricio Polato",
+      "cpf": "000.000.000-00",
+      "email": "fabriciodev@gmail.com",
       "endereco": {
-        "cep": "04756-080",
-        "rua": "Rua Engenheiro Mário Leite",
-        "numero": "9",
-        "bairro": "Jardim Internacional",
-        "cidade": "São Paulo"
+        "cep": "74255-220",
+        "rua": "Avenida T 9",
+        "numero": "0",
+        "bairro": "Jardim América",
+        "cidade": "Goiânia"
       },
-      "id": 1
+      "id": 2
     }
   ]
 }

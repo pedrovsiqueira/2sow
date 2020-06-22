@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  ChangeEvent,
-  FormEvent,
-  useRef,
-  useCallback,
-} from 'react';
+import React, { useState, ChangeEvent, useRef, useCallback } from 'react';
 import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
 import { api, apiViaCep } from '../../services/api';
@@ -13,6 +7,7 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { Container, StyledButton } from './styles';
 import Nav from '../../components/Nav/Nav';
+import * as Yup from 'yup';
 
 interface inputValuesDTO {
   nome: string;
@@ -34,10 +29,9 @@ const InsertUser = () => {
   const [cpf, setCpf] = useState('');
   const [cep, setCep] = useState('');
 
-  const handleSubmit = async (data: inputValuesDTO) => {
+  const handleSubmit = useCallback(async (data: inputValuesDTO) => {
     const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
 
-    console.log(data);
     const newUser = {
       nome,
       cpf,
@@ -57,7 +51,7 @@ const InsertUser = () => {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, []);
 
   const handleChange = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
