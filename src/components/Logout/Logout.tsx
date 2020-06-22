@@ -4,10 +4,10 @@ import { Container } from './styles';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Logout: React.FC<ButtonProps> = () => {
+const Logout: React.FC<ButtonProps> = (props) => {
   return (
     <Container>
-      <button>log out</button>
+      <button {...props}>log out</button>
     </Container>
   );
 };

@@ -23,7 +23,7 @@ const Login: React.FC = () => {
   const history = useHistory();
 
   const { user, signIn } = useAuth();
-  const { addToast, removeToast } = useToast();
+  const { addToast } = useToast();
 
   console.log(user);
   const handleSubmit = useCallback(

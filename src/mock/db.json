@@ -62,6 +62,12 @@
       "password": "$2a$10$BnM3ZWTMy7Tma5IZ0obdsO0de0Mc0sw9aFxaMAXblafeJhGqy6416",
       "confirmEmail": "123pedro@123pedro.com",
       "id": 11
+    },
+    {
+      "email": "ricky@gmail.com",
+      "password": "$2a$10$bjY9EN8xRgOEThndxui11.IqM/cCkOk/TgoPmiPIBmMY2kJTA9jVq",
+      "confirmEmail": "ricky@gmail.com",
+      "id": 12
     }
   ],
   "usuarios": []

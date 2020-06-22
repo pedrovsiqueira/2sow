@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import Input from '../../components/Input/Input2';
 import Button from '../../components/Button/Button';
-import { Container } from './styles';
+import { Container, GoBackStyled, ButtonSection } from './styles';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
@@ -10,6 +10,7 @@ import logo from '../../assets/logo.svg';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 import { useToast } from '../../hooks/toast';
+import backIcon from '../../assets/back-icon.svg';
 
 interface SignUpFormData {
   email: string;
@@ -45,10 +46,11 @@ const SignUp: React.FC = () => {
         await api.post('/users', data);
 
         history.push('/login');
+
         addToast({
           type: 'success',
           title: 'Cadastro realizado!',
-          description: 'Você já pode fazer o login'
+          description: 'Você já pode fazer o login',
         });
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
@@ -57,6 +59,7 @@ const SignUp: React.FC = () => {
 
           return;
         }
+
         addToast({
           type: 'error',
           description: 'Ocorreu um erro ao fazer cadastro, tente novamente',
@@ -69,6 +72,9 @@ const SignUp: React.FC = () => {
 
   return (
     <Container>
+      <GoBackStyled onClick={history.goBack}>
+        <img src={backIcon} alt="back icon" />
+      </GoBackStyled>
       <main>
         <figure>
           <img src={logo} alt="logo" />
@@ -92,9 +98,10 @@ const SignUp: React.FC = () => {
             <Input name="password" type="password" placeholder="******" />
           </section>
         </section>
-        <div>
+
+        <ButtonSection>
           <Button>Sign Up</Button>
-        </div>
+        </ButtonSection>
       </Form>
     </Container>
   );
