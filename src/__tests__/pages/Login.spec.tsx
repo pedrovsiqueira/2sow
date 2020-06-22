@@ -38,6 +38,11 @@ describe('Login Page', () => {
     mockedHistoryPush.mockClear();
   });
 
+  it('renders without crashing', () => {
+    const { asFragment } = render(<Login />);
+    expect(asFragment()).toMatchSnapshot()
+  });
+
   it('should be able to log in', async () => {
     const { getByTestId } = render(<Login />);
 

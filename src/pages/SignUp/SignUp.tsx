@@ -84,11 +84,17 @@ const SignUp: React.FC = () => {
       <Form ref={formRef} onSubmit={handleSubmit}>
         <section>
           <section>
-            <Input label="email" name="email" placeholder="exemplo@gmail.com" />
+            <Input
+              data-testid="email"
+              label="email"
+              name="email"
+              placeholder="exemplo@gmail.com"
+            />
           </section>
 
           <section>
             <Input
+              data-testid="confirm-email"
               label="confirmar email"
               name="confirmEmail"
               placeholder="exemplo@gmail.com"
@@ -97,6 +103,7 @@ const SignUp: React.FC = () => {
 
           <section>
             <Input
+              data-testid="password"
               label="senha"
               name="password"
               type="password"
@@ -106,7 +113,7 @@ const SignUp: React.FC = () => {
         </section>
 
         <ButtonSection>
-          <Button>cadastrar</Button>
+          <Button data-testid="sign-up">cadastrar</Button>
         </ButtonSection>
       </Form>
     </Container>

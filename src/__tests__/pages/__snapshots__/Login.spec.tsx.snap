@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-AxheI iCvYGC"
+  >
+    <div
+      class="sc-Axmtr kGFezI"
+    >
+      <img
+        alt="back icon"
+        src="back-icon.svg"
+      />
+    </div>
+    <main>
+      <figure>
+        <img
+          alt="logo"
+          src="logo.svg"
+        />
+      </figure>
+      <h1>
+        Seja bem vindo.
+      </h1>
+    </main>
+    <form>
+      <section>
+        <section>
+          <label
+            class="sc-AxhUy ifxrsp"
+            for="email"
+          >
+            email
+          </label>
+          <div
+            class="sc-AxirZ cmRqOQ"
+          >
+            <input
+              class="sc-AxiKw foiNIc"
+              data-testid="email"
+              placeholder="exemplo@gmail.com"
+            />
+          </div>
+        </section>
+        <section>
+          <label
+            class="sc-AxhUy ifxrsp"
+            for="password"
+          >
+            senha
+          </label>
+          <div
+            class="sc-AxirZ cmRqOQ"
+          >
+            <input
+              class="sc-AxiKw foiNIc"
+              data-testid="password"
+              placeholder="******"
+              type="password"
+            />
+          </div>
+        </section>
+      </section>
+      <div>
+        <button
+          class="sc-AxgMl jrdwSE"
+          data-testid="login"
+        >
+          entrar
+        </button>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;
