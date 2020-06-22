@@ -33,11 +33,11 @@
     "yup": "^0.29.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "json-server src/mock/db.json -m ./node_modules/json-server-auth --port 5000 -w & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json-server": "json-server src/mock/db.json -m ./node_modules/json-server-auth --port 5000 -w"
+    "test:coverage": "react-scripts test --coverage --watchAll false"
   },
   "eslintConfig": {
     "extends": "react-app"
