@@ -17,10 +17,10 @@ const Home = () => {
 
         <section>
           <Link to="/login">
-            <Button>login</Button>
+            <Button>entrar</Button>
           </Link>
           <Link to="/signup">
-            <Button>sign up</Button>
+            <Button>cadastrar</Button>
           </Link>
         </section>
         

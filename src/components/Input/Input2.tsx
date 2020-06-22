@@ -4,8 +4,9 @@ import React, {
   useEffect,
   useState,
   useCallback,
+  ChangeEvent,
 } from 'react';
-import { Container, StyledInput, Error } from './styles';
+import { Container, StyledInput, Error, StyledLabel } from './styles';
 import { useField } from '@unform/core';
 import { IconBaseProps } from 'react-icons';
 import { FiAlertCircle } from 'react-icons/fi';
@@ -13,9 +14,17 @@ import { FiAlertCircle } from 'react-icons/fi';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
+  label: string;
+  handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input2: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
+const Input2: React.FC<InputProps> = ({
+  name,
+  icon: Icon,
+  label,
+  handleChange,
+  ...rest
+}) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { fieldName, defaultValue, error, registerField } = useField(name);
 
@@ -38,21 +47,25 @@ const Input2: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-    <Container isErrored={!!error} isFocused={isFocused}>
-      <StyledInput
-        isErrored={!!error}
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-        ref={inputRef}
-        {...rest}
-      ></StyledInput>
+    <>
+      <StyledLabel htmlFor={name}>{label}</StyledLabel>
+      <Container isErrored={!!error} isFocused={isFocused}>
+        <StyledInput
+          isErrored={!!error}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+          onChange={handleChange}
+          ref={inputRef}
+          {...rest}
+        ></StyledInput>
 
-      {error && (
-        <Error title={error}>
-          <FiAlertCircle color="#f8a186" size={20} />
-        </Error>
-      )}
-    </Container>
+        {error && (
+          <Error title={error}>
+            <FiAlertCircle color="#f8a186" size={20} />
+          </Error>
+        )}
+      </Container>
+    </>
   );
 };
 

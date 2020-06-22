@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import getValidationErrors from '../../utils/getValidationErrors';
 import logo from '../../assets/logo.svg';
 import { Link, useHistory } from 'react-router-dom';
-import api from '../../services/api';
+import { api } from '../../services/api';
 import { useToast } from '../../hooks/toast';
 import backIcon from '../../assets/back-icon.svg';
 
@@ -84,23 +84,29 @@ const SignUp: React.FC = () => {
       <Form ref={formRef} onSubmit={handleSubmit}>
         <section>
           <section>
-            <label htmlFor="email">e-mail</label>
-            <Input name="email" placeholder="exemplo@gmail.com" />
+            <Input label="email" name="email" placeholder="exemplo@gmail.com" />
           </section>
 
           <section>
-            <label htmlFor="confirmEmail">confirme o e-mail</label>
-            <Input name="confirmEmail" placeholder="exemplo@gmail.com" />
+            <Input
+              label="confirmar email"
+              name="confirmEmail"
+              placeholder="exemplo@gmail.com"
+            />
           </section>
 
           <section>
-            <label htmlFor="password">password</label>
-            <Input name="password" type="password" placeholder="******" />
+            <Input
+              label="senha"
+              name="password"
+              type="password"
+              placeholder="******"
+            />
           </section>
         </section>
 
         <ButtonSection>
-          <Button>Sign Up</Button>
+          <Button>cadastrar</Button>
         </ButtonSection>
       </Form>
     </Container>

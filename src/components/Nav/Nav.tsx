@@ -20,7 +20,7 @@ const Nav: React.FC = () => {
         </figure>
 
         <Navigation>
-          <NavLink to="/users" activeStyle={activeStyle}>
+          <NavLink exact to="/users" activeStyle={activeStyle}>
             listagem
           </NavLink>
           <NavLink to="/users/create" activeStyle={activeStyle}>

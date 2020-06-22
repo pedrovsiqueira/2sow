@@ -81,17 +81,17 @@ const Login: React.FC = () => {
       <Form ref={formRef} onSubmit={handleSubmit}>
         <section>
           <section>
-            <label htmlFor="email">e-mail</label>
             <Input
               icon={FiAlertCircle}
+              label="email"
               name="email"
               placeholder="exemplo@gmail.com"
             />
           </section>
 
           <section>
-            <label htmlFor="password">password</label>
             <Input
+              label="senha"
               icon={FiAlertCircle}
               name="password"
               type="password"
@@ -100,7 +100,7 @@ const Login: React.FC = () => {
           </section>
         </section>
         <div>
-          <Button>login</Button>
+          <Button>entrar</Button>
         </div>
       </Form>
     </Container>

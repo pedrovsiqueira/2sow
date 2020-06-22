@@ -7,7 +7,8 @@ interface StyledProps {
 }
 
 export const Container = styled.div<StyledProps>`
-  width: 304px;
+  width: 100%;
+  max-width: 615px;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -16,6 +17,7 @@ export const Container = styled.div<StyledProps>`
   box-shadow: 18px 18px 30px #d1d9e6,
     inset 10px 10px 30px rgba(255, 255, 255, 0.4);
   border-radius: 17px;
+  margin-bottom: 24px;
 
   ${(props) =>
     props.isErrored &&
@@ -54,4 +56,13 @@ export const StyledInput = styled.input<StyledProps>`
 export const Error = styled(Tooltip)`
   height: 20px;
   padding: 12px 10px 0 0;
+`;
+
+export const StyledLabel = styled.label`
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-variant: small-caps;
+  margin-bottom: 8px;
+  display: block;
 `;

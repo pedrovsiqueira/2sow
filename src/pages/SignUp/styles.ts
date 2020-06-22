@@ -30,14 +30,6 @@ export const Container = styled.div`
     & :last-child > div {
       margin-bottom: 50px;
     }
-
-    label {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      font-variant: small-caps;
-      margin: 24px 0 8px 0;
-    }
   }
 `;
 

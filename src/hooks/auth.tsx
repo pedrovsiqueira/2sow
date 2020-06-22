@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
-import api from '../services/api';
+import {api} from '../services/api';
 
 //context utilizado para pegar informações do user
 

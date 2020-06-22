@@ -22,15 +22,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 24px;
-
-    label {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      font-variant: small-caps;
-      margin-bottom: 8px;
-    }
 
     & :nth-child(4) {
       margin-bottom: 63px;

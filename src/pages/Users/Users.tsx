@@ -1,5 +1,5 @@
 import React, { useEffect, useState, ChangeEvent, useCallback } from 'react';
-import api from '../../services/api';
+import { api } from '../../services/api';
 import { Container, PageControls } from './styles';
 import SearchInput from '../../components/Input/SearchInput/SearchInput';
 import Card from '../../components/Card/Card';
@@ -9,7 +9,7 @@ import { editUser, deleteUser } from '../../services/users';
 import BounceLoader from 'react-spinners/BounceLoader';
 import Button from '../../components/Button/Button';
 import addIcon from '../../assets/add-icon.svg';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Users: React.FC = () => {
   const [users, setUsers] = useState<CardData[]>([]);
