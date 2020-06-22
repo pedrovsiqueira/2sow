@@ -7,7 +7,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import getValidationErrors from '../../utils/getValidationErrors';
 import logo from '../../assets/logo.svg';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { api } from '../../services/api';
 import { useToast } from '../../hooks/toast';
 import backIcon from '../../assets/back-icon.svg';

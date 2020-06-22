@@ -1,5 +1,4 @@
 import React, { ButtonHTMLAttributes } from 'react';
-import { Link, useHistory } from 'react-router-dom';
 import { Container } from './styles';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;

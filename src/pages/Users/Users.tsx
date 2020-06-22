@@ -5,7 +5,7 @@ import SearchInput from '../../components/Input/SearchInput/SearchInput';
 import Card from '../../components/Card/Card';
 import { CardData } from '../../components/Card/Card';
 import Nav from '../../components/Nav/Nav';
-import { editUser, deleteUser } from '../../services/users';
+import { deleteUser } from '../../services/users';
 import BounceLoader from 'react-spinners/BounceLoader';
 import Button from '../../components/Button/Button';
 import addIcon from '../../assets/add-icon.svg';

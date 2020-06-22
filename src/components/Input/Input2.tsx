@@ -26,7 +26,7 @@ const Input2: React.FC<InputProps> = ({
   ...rest
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const { fieldName, defaultValue, error, registerField } = useField(name);
+  const { fieldName, error, registerField } = useField(name);
 
   const [isFocused, setIsFocused] = useState(false);
 

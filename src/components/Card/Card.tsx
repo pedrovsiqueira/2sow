@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Container } from './styles';
 import editIcon from '../../assets/edit-icon.svg';
 import trashIcon from '../../assets/trash-icon.svg';
