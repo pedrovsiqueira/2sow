@@ -53,7 +53,8 @@ const EditUser = () => {
         cep: Yup.string().min(9, 'Mínimo 8 digitos'),
         rua: Yup.string().required('Rua obrigatório'),
         bairro: Yup.string().required('Bairro obrigatório'),
-        cidade: Yup.string().required('cidade obrigatório'),
+        cidade: Yup.string().required('Cidade obrigatório'),
+        numero: Yup.string().required('Número obrigatório'),
       });
 
       await schema.validate(data, {

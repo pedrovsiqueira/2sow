@@ -48,6 +48,7 @@ const InsertUser = () => {
         nome: Yup.string().required('Nome obrigatório'),
         cep: Yup.string().min(9, 'Mínimo 8 digitos'),
         rua: Yup.string().required('Rua obrigatório'),
+        numero: Yup.string().required('Número obrigatório'),
         bairro: Yup.string().required('Bairro obrigatório'),
         cidade: Yup.string().required('cidade obrigatório'),
       });
