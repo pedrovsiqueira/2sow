@@ -12,6 +12,13 @@ The challenge was to build a system for user registration. I created a home, log
 - [ReactJS](https://pt-br.reactjs.org/) - Uma biblioteca JavaScript para criar interfaces de usuário.
 - [Styled Components](https://styled-components.com/) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
 
+
+### Tests:
+
+- [Typescript](https://www.typescriptlang.org/) - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+- [ReactJS](https://pt-br.reactjs.org/) - Uma biblioteca JavaScript para criar interfaces de usuário.
+- [Styled Components](https://styled-components.com/) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
+
 <!-- GETTING STARTED -->
 
 ## Getting Started
@@ -29,10 +36,10 @@ In order to run this project locally you will need to:
 1. Clone the repo
 
 ```sh
-git clone (repository url address)
+git clone https://github.com/pedrovsiqueira/desafio-2sow
 ```
 
-2. Install NPM packages
+2. Install YARN packages
 
 ```sh
 yarn add
