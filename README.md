@@ -1,6 +1,6 @@
 # Desafio 2Sow
 
-![Desafio 2Sow ](/media/meucarrinho_banner_2.png)
+![Desafio 2Sow ](/public/2Sow.png)
 
 ## About The Project
 
@@ -76,4 +76,4 @@ yarn test:coverage
 
 ## Contact
 
-Pedro Siqueira - [email](mailto:pedro.v.siqueira@gmail.com) - [linkedin](https://www.linkedin.com/in/pedrovsiqueira/)
+Pedro Siqueira - [email](mailto:pedro.v.siqueira@gmail.com) - [linkedin](https://www.linkedin.com/in/pedrovsiqueira/) - [portfolio](http://pedrosiqueira.com.br/)
