@@ -12,13 +12,6 @@ The challenge was to build a system for user registration. I created a home, log
 - [ReactJS](https://pt-br.reactjs.org/) - Uma biblioteca JavaScript para criar interfaces de usuário.
 - [Styled Components](https://styled-components.com/) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
 
-
-### Tests:
-
-- [Typescript](https://www.typescriptlang.org/) - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
-- [ReactJS](https://pt-br.reactjs.org/) - Uma biblioteca JavaScript para criar interfaces de usuário.
-- [Styled Components](https://styled-components.com/) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
-
 <!-- GETTING STARTED -->
 
 ## Getting Started
@@ -61,6 +54,22 @@ PORTS: 5000 and 3000.
 
 ```sh
 http://localhost:3000/
+```
+
+### Tests:
+
+Tests were done using jest and react-testing-library. The tests are still ongoing. To see the tests run the following commands:
+
+1. Test results
+
+```sh
+yarn test
+```
+
+2. Test results using coverage
+
+```sh
+yarn test:coverage
 ```
 
 <!-- CONTACT -->
