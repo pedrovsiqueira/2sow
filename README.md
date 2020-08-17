@@ -4,7 +4,7 @@
 
 ## About The Project
 
-The challenge was to build a system for user registration. I created a home, login, signup, users, create user and edit user screens. The site is responsive from 414px up.
+The challenge was to build a system for user registration. I created a home, login, signup, users, create user and edit user screens. The site is responsive from 414px up. This is the front end of the application. To access the back end, go to the following repository: https://github.com/pedrovsiqueira/2sow-backend. 
 
 ### Built With:
 
@@ -22,20 +22,21 @@ The challenge was to build a system for user registration. I created a home, log
 
 In order to run this project locally you will need to:
 
-- Clone and install this repository - https://github.com/pedrovsiqueira/desafio-2sow.
+- Clone and install this repository - https://github.com/pedrovsiqueira/2sow.
+- Clone and install this repository - https://github.com/pedrovsiqueira/2sow-backend.
 
 ### Installation
 
 1. Clone the repo
 
 ```sh
-git clone https://github.com/pedrovsiqueira/desafio-2sow
+git clone https://github.com/pedrovsiqueira/2sow
 ```
 
 2. Install YARN packages
 
 ```sh
-yarn add
+yarn
 ```
 
 3. Run the app
@@ -47,7 +48,7 @@ yarn start
 4. Make sure the following ports are available:
 
 ```sh
-PORTS: 5000 and 3000.
+PORTS: 3001 and 3000.
 ```
 
 5. Access the application through the following link afer doing the steps 1 - 4.
