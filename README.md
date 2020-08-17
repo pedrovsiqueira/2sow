@@ -12,6 +12,11 @@ The challenge was to build a system for user registration. I created a home, log
 - [ReactJS](https://pt-br.reactjs.org/) - Uma biblioteca JavaScript para criar interfaces de usuário.
 - [Styled Components](https://styled-components.com/) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress.
 
+<!-- USAGE EXAMPLES -->
+## Usage
+
+The project is deployed and can be accessed at https://2sow.vercel.app/
+
 <!-- GETTING STARTED -->
 
 ## Getting Started
