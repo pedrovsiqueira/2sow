@@ -1,6 +1,12 @@
 import React, { useEffect, useState, ChangeEvent, useCallback } from 'react';
 import { api } from '../../services/api';
-import { Container, PageControls, Modal, Overlay } from './styles';
+import {
+  Container,
+  PageControls,
+  Modal,
+  Overlay,
+  ErrorMessage,
+} from './styles';
 import SearchInput from '../../components/Input/SearchInput/SearchInput';
 import Card from '../../components/Card/Card';
 import { CardData } from '../../components/Card/Card';
@@ -18,14 +24,21 @@ const Users: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isShowing, setIsShowing] = useState(false);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
   const [idToBeDeleted, setIdToBeDeleted] = useState(0);
 
   const handleApiRequest = useCallback(async () => {
-    const { data } = await api.get(
-      `/usuarios/?q=${searchValue}&_limit=9&_page=${page}`
-    );
-    setUsers(data);
-    setIsLoading(false);
+    try {
+      const { data } = await api.get(
+        `usuarios/?searchValue=${searchValue}&limit=10&page=${page}`
+      );
+      setUsers(data.results);
+      setTotalPages(data.totalPages);
+      setIsLoading(false);
+    } catch (error) {
+      setUsers([])
+      setIsLoading(false);
+    }
   }, [searchValue, page]);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,18 +47,26 @@ const Users: React.FC = () => {
 
   const handleDelete = useCallback(async () => {
     await deleteUser(idToBeDeleted);
+
+    if (users.length - 1 === 0 && page > 1) {
+      setPage((prevPage) => prevPage - 1);
+    }
+
     handleApiRequest();
     setIsShowing(false);
   }, [idToBeDeleted]);
 
-  const handlePage = useCallback((num: number) => {
-    setPage((prevPage) => prevPage + num);
+  const handlePage = useCallback(async (str) => {
+    str === '+'
+      ? setPage((prevPage) => prevPage + 1)
+      : setPage((prevPage) => prevPage - 1);
+
     window.scrollTo(0, 0);
   }, []);
 
   const handleModal = useCallback((boolean: boolean, id = idToBeDeleted) => {
-    setIdToBeDeleted(id)
-    setIsShowing(boolean)
+    setIdToBeDeleted(id);
+    setIsShowing(boolean);
   }, []);
 
   useEffect(() => {
@@ -58,7 +79,7 @@ const Users: React.FC = () => {
 
   return (
     <Container>
-      <Overlay isShowing={isShowing} onClick={() => handleModal(false)}/>
+      <Overlay isShowing={isShowing} onClick={() => handleModal(false)} />
       <Modal isShowing={isShowing}>
         <figure onClick={() => handleModal(false)}>
           <img src={xIcon} alt="x icon" />
@@ -87,16 +108,22 @@ const Users: React.FC = () => {
         </span>
       ) : (
         <section>
-          {users.map((card) => (
-            <Card key={card.id} {...card} handleModal={handleModal}/>
-          ))}
+          {users.length ? (
+            users.map((card) => (
+              <Card key={card._id} {...card} handleModal={handleModal} />
+            ))
+          ) : (
+            <ErrorMessage>
+              <p>Nenhum usuário encontrado</p>
+            </ErrorMessage>
+          )}
         </section>
       )}
 
       <PageControls>
-        {page > 1 && <Button onClick={() => handlePage(-1)}>anterior</Button>}
-        {users.length === 9 && (
-          <Button onClick={() => handlePage(1)}>próximo</Button>
+        {page > 1 && <Button onClick={() => handlePage('-')}>anterior</Button>}
+        {users.length !== 0 && page !== totalPages && (
+          <Button onClick={() => handlePage('+')}>próximo</Button>
         )}
       </PageControls>
 
