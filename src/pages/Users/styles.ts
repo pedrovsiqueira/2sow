@@ -172,3 +172,13 @@ export const Overlay = styled.div<IProps>`
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 90;
 `;
+
+export const ErrorMessage = styled.div`
+grid-column: 1 / 4;
+  p {
+    margin-top: 200px;
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 0.02em;
+  }
+`;
