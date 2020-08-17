@@ -45,7 +45,7 @@ const EditUser = () => {
 
   const handleSubmit = useCallback(async (data: inputValuesDTO) => {
     try {
-      const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
+      // const {cep, rua, numero, bairro, cidade } = data;
 
       formRef.current?.setErrors({});
 
@@ -61,19 +61,7 @@ const EditUser = () => {
         abortEarly: false,
       });
 
-      const editUser = {
-        nome,
-        cpf,
-        email,
-        endereco: {
-          cep,
-          rua,
-          numero,
-          bairro,
-          cidade,
-        },
-      };
-      const response = await api.put(`usuarios/${id}`, editUser);
+      await api.put(`usuarios/${id}`, data);
       history.push('/users');
 
       addToast({

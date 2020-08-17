@@ -36,7 +36,6 @@ const InsertUser = () => {
 
   const handleSubmit = useCallback(async (data: inputValuesDTO) => {
     try {
-      const { nome, cpf, email, cep, rua, numero, bairro, cidade } = data;
 
       formRef.current?.setErrors({});
 
@@ -57,19 +56,7 @@ const InsertUser = () => {
         abortEarly: false,
       });
 
-      const newUser = {
-        nome,
-        cpf,
-        email,
-        endereco: {
-          cep,
-          rua,
-          numero,
-          bairro,
-          cidade,
-        },
-      };
-      const response = await api.post('usuarios', newUser);
+      await api.post('usuarios', data);
       history.push('/users');
 
       addToast({

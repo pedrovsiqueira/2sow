@@ -12,7 +12,7 @@ export interface CardData {
   nome: string;
   cpf: string;
   email: string;
-  id: number;
+  _id: number;
   endereco: EnderecoProps;
   handleEdit: (id: number) => void;
   handleModal: (boolean: boolean, id: number) => void;
@@ -23,7 +23,7 @@ const Card: React.FC<CardData> = ({
   cpf,
   email,
   endereco,
-  id,
+  _id,
   handleEdit,
   handleModal
 }) => {
@@ -31,7 +31,7 @@ const Card: React.FC<CardData> = ({
     <Container>
       <header>
         <h3>{nome}</h3>
-        <Link to={`/users/edit/${id}`}>
+        <Link to={`/users/edit/${_id}`}>
           <img src={editIcon} alt="edit icon" />
         </Link>
       </header>
@@ -44,7 +44,7 @@ const Card: React.FC<CardData> = ({
       <footer>
         <p>{endereco.cidade}</p>
         <img
-          onClick={() => handleModal(true, id)}
+          onClick={() => handleModal(true, _id)}
           src={trashIcon}
           alt="trash icon"
         />
