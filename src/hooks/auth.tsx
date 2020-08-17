@@ -4,8 +4,7 @@ import {api} from '../services/api';
 //context utilizado para pegar informações do user
 
 interface AuthState {
-  accessToken: string;
-  user: object;
+  token: string;
 }
 
 interface SignInCredentials {
@@ -14,56 +13,65 @@ interface SignInCredentials {
 }
 
 interface AuthContextData {
-  user: object;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
+  token: string;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
-    const accessToken = localStorage.getItem('2sow:accessToken');
-    const user = localStorage.getItem('2sow:user');
+  const token = localStorage.getItem('2sow:token');
 
-    if (accessToken && user) {
-      return { accessToken, user: JSON.parse(user) };
+    // if (token) {
+    //   return { token };
+    // }
+
+    if (token) {
+      api.defaults.headers.Authorization = `Bearer ${token}`;
+      return { token };
     }
 
     return {} as AuthState;
   });
 
   const signIn = useCallback(async ({ email, password }) => {
-    const response = await api.post('signin', {
+    const response = await api.post('/auth/login', {
       email,
       password,
     });
 
-    const { data } = await api.get(`users?email=${email}`);
+    const { token } = response.data;
 
-    const user = {
-      userEmail: data[0].email,
-      userId: data[0].id,
-      userPassword: data[0].password,
-    };
+    api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    const { accessToken } = response.data;
+    localStorage.setItem('2sow:token', token);
 
-    localStorage.setItem('2sow:accessToken', accessToken);
-    localStorage.setItem('2sow:user', JSON.stringify(user));
-
-    setData({ accessToken, user });
+    setData({ token });
   }, []);
 
+  // const signIn = useCallback(async ({ email, password }) => {
+  //   const response = await api.post('/auth/login', {
+  //     email,
+  //     password,
+  //   });
+
+  //   const { token } = response.data;
+
+  //   localStorage.setItem('2sow:token', token);
+
+  //   setData({ token });
+  // }, []);
+
   const signOut = useCallback(() => {
-    const accessToken = localStorage.removeItem('2sow:accessToken');
-    const user = localStorage.removeItem('2sow:user');
+    localStorage.removeItem('2sow:token');
 
     setData({} as AuthState);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider value={{token: data.token, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
