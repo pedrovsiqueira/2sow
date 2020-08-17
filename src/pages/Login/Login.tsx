@@ -22,10 +22,9 @@ const Login: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
 
-  const { user, signIn } = useAuth();
+  const { signIn } = useAuth();
   const { addToast } = useToast();
 
-  console.log(user);
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
       try {
