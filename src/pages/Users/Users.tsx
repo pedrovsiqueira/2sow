@@ -30,7 +30,7 @@ const Users: React.FC = () => {
   const handleApiRequest = useCallback(async () => {
     try {
       const { data } = await api.get(
-        `usuarios/?searchValue=${searchValue}&limit=10&page=${page}`
+        `usuarios/?searchValue=${searchValue}&limit=9&page=${page}`
       );
       setUsers(data.results);
       setTotalPages(data.totalPages);
