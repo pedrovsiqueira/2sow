@@ -1,36 +1,31 @@
 import React from 'react';
-import SignUp from '../../pages/SignUp/SignUp';
 import { render, fireEvent, wait } from '@testing-library/react';
+import SignUp from '../../pages/SignUp/SignUp';
+
 const mockedHistoryPush = jest.fn();
 const mockedAddToast = jest.fn();
 
-//Mock atribuir valores fictícios para variáveis/funções
-//jest.fn é uma função vazia que serve só para saber se ela foi chamada ou não
+// Mock atribuir valores fictícios para variáveis/funções
+// jest.fn é uma função vazia que serve só para saber se ela foi chamada ou não
 
-jest.mock('../../hooks/toast.tsx', () => {
-  return {
-    useToast: () => ({
-      addToast: mockedAddToast,
-    }),
-  };
-});
+jest.mock('../../hooks/toast.tsx', () => ({
+  useToast: () => ({
+    addToast: mockedAddToast,
+  }),
+}));
 
-jest.mock('react-router-dom', () => {
-  return {
-    useHistory: () => ({
-      goBack: jest.fn(),
-      push: mockedHistoryPush,
-    }),
-  };
-});
+jest.mock('react-router-dom', () => ({
+  useHistory: () => ({
+    goBack: jest.fn(),
+    push: mockedHistoryPush,
+  }),
+}));
 
-jest.mock('../../services/api.ts', () => {
-  return {
-    api: {
-      post: jest.fn(),
-    },
-  };
-});
+jest.mock('../../services/api.ts', () => ({
+  api: {
+    post: jest.fn(),
+  },
+}));
 
 describe('SignUp Page', () => {
   beforeEach(() => {

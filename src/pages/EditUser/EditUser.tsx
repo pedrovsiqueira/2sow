@@ -5,17 +5,17 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import Input from '../../components/Input/Input2';
-import Button from '../../components/Button/Button';
-import { api, apiViaCep } from '../../services/api';
 import { useHistory, useParams } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
+import Input from '../../components/Input/Input2';
+import Button from '../../components/Button/Button';
+import { api, apiViaCep } from '../../services/api';
 import { Container, StyledButton } from './styles';
 import Nav from '../../components/Nav/Nav';
 import getValidationErrors from '../../utils/getValidationErrors';
 import { useToast } from '../../hooks/toast';
-import * as Yup from 'yup';
 
 interface inputValuesDTO {
   nome: string;
@@ -45,8 +45,6 @@ const EditUser = () => {
 
   const handleSubmit = useCallback(async (data: inputValuesDTO) => {
     try {
-      // const {cep, rua, numero, bairro, cidade } = data;
-
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
@@ -106,8 +104,12 @@ const EditUser = () => {
   useEffect(() => {
     (async () => {
       const { data } = await api.get(`usuarios/${id}`);
-      const { nome, cpf, email, endereco } = data;
-      const { cep, rua, numero, bairro, cidade } = endereco;
+      const {
+        nome, cpf, email, endereco,
+      } = data;
+      const {
+        cep, rua, numero, bairro, cidade,
+      } = endereco;
 
       setBairro(bairro);
       setNome(nome);

@@ -1,16 +1,17 @@
-import React, { useState, ChangeEvent, useRef, useCallback } from 'react';
-import Input from '../../components/Input/Input2';
-import Button from '../../components/Button/Button';
-import { api, apiViaCep } from '../../services/api';
+import React, {
+  useState, ChangeEvent, useRef, useCallback,
+} from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
+import Input from '../../components/Input/Input2';
+import Button from '../../components/Button/Button';
+import { api, apiViaCep } from '../../services/api';
 import { Container, StyledButton } from './styles';
 import Nav from '../../components/Nav/Nav';
 import getValidationErrors from '../../utils/getValidationErrors';
 import { useToast } from '../../hooks/toast';
-
-import * as Yup from 'yup';
 
 interface inputValuesDTO {
   nome: string;
@@ -36,7 +37,6 @@ const InsertUser = () => {
 
   const handleSubmit = useCallback(async (data: inputValuesDTO) => {
     try {
-
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({

@@ -11,11 +11,11 @@ interface RouteProps extends ReactRouteProps {
   component: React.ComponentType;
 }
 
-//rota privada/usuário autenticado
-//true/true = ok
-//true/false = redirect login
-//false/true = redirect users
-//false/false = ok
+// rota privada/usuário autenticado
+// true/true = ok
+// true/false = redirect login
+// false/true = redirect users
+// false/false = ok
 
 const Routes: React.FC<RouteProps> = ({
   isPrivate = false,
@@ -26,18 +26,16 @@ const Routes: React.FC<RouteProps> = ({
   return (
     <ReactDOMRoute
       {...rest}
-      render={({ location }) => {
-        return isPrivate === !!token ? (
-          <Component />
-        ) : (
-          <Redirect
-            to={{
-              pathname: isPrivate ? '/' : '/users',
-              state: { from: location },
-            }}
-          />
-        );
-      }}
+      render={({ location }) => (isPrivate === !!token ? (
+        <Component />
+      ) : (
+        <Redirect
+          to={{
+            pathname: isPrivate ? '/' : '/users',
+            state: { from: location },
+          }}
+        />
+      ))}
     />
   );
 };

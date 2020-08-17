@@ -1,37 +1,31 @@
 import React from 'react';
-import Login from '../../pages/Login/Login';
 import { render, fireEvent, wait } from '@testing-library/react';
+import Login from '../../pages/Login/Login';
 
 const mockedHistoryPush = jest.fn();
 const mockedSignIn = jest.fn();
 const mockedAddToast = jest.fn();
-//Mock atribuir valores fictícios para variáveis/funções
-//jest.fn é uma função vazia que serve só para saber se ela foi chamada ou não
+// Mock atribuir valores fictícios para variáveis/funções
+// jest.fn é uma função vazia que serve só para saber se ela foi chamada ou não
 
-jest.mock('../../hooks/toast.tsx', () => {
-  return {
-    useToast: () => ({
-      addToast: mockedAddToast,
-    }),
-  };
-});
+jest.mock('../../hooks/toast.tsx', () => ({
+  useToast: () => ({
+    addToast: mockedAddToast,
+  }),
+}));
 
-jest.mock('react-router-dom', () => {
-  return {
-    useHistory: () => ({
-      goBack: jest.fn(),
-      push: mockedHistoryPush,
-    }),
-  };
-});
+jest.mock('react-router-dom', () => ({
+  useHistory: () => ({
+    goBack: jest.fn(),
+    push: mockedHistoryPush,
+  }),
+}));
 
-jest.mock('../../hooks/auth.tsx', () => {
-  return {
-    useAuth: () => ({
-      signIn: mockedSignIn,
-    }),
-  };
-});
+jest.mock('../../hooks/auth.tsx', () => ({
+  useAuth: () => ({
+    signIn: mockedSignIn,
+  }),
+}));
 
 describe('Login Page', () => {
   beforeEach(() => {
@@ -40,7 +34,7 @@ describe('Login Page', () => {
 
   it('renders without crashing', () => {
     const { asFragment } = render(<Login />);
-    expect(asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should be able to log in', async () => {
@@ -109,7 +103,7 @@ describe('Login Page', () => {
       expect(mockedAddToast).toHaveBeenCalledWith(
         expect.objectContaining({
           type: 'error',
-        })
+        }),
       );
     });
   });

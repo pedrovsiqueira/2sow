@@ -1,9 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Container, Content, Navigation } from './styles';
 import bwlogo from '../../assets/bwlogo.svg';
 import { useAuth } from '../../hooks/auth';
 import Logout from '../../components/Logout/Logout';
-import { NavLink } from 'react-router-dom';
 
 const Nav: React.FC = () => {
   const { signOut } = useAuth();

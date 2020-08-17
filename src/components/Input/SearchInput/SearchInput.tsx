@@ -20,7 +20,7 @@ const SearchInput: React.FC<InputProps> = (props) => {
       onFocus={handleInputFocus}
       onBlur={handleInputBlur}
       {...props}
-    ></StyledInput>
+    />
   );
 };
 

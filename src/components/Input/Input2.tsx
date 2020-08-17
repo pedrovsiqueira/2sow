@@ -6,10 +6,12 @@ import React, {
   useCallback,
   ChangeEvent,
 } from 'react';
-import { Container, StyledInput, Error, StyledLabel } from './styles';
 import { useField } from '@unform/core';
 import { IconBaseProps } from 'react-icons';
 import { FiAlertCircle } from 'react-icons/fi';
+import {
+  Container, StyledInput, Error, StyledLabel,
+} from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -61,7 +63,7 @@ const Input2: React.FC<InputProps> = ({
           onChange={handleChange}
           ref={inputRef}
           {...rest}
-        ></StyledInput>
+        />
 
         {error && (
           <Error title={error}>

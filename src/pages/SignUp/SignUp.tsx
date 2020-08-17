@@ -1,13 +1,13 @@
 import React, { useCallback, useRef } from 'react';
-import Input from '../../components/Input/Input2';
-import Button from '../../components/Button/Button';
-import { Container, GoBackStyled, ButtonSection } from './styles';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+import { useHistory } from 'react-router-dom';
+import Input from '../../components/Input/Input2';
+import Button from '../../components/Button/Button';
+import { Container, GoBackStyled, ButtonSection } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
 import logo from '../../assets/logo.svg';
-import { useHistory } from 'react-router-dom';
 import { api } from '../../services/api';
 import { useToast } from '../../hooks/toast';
 import backIcon from '../../assets/back-icon.svg';
@@ -67,7 +67,7 @@ const SignUp: React.FC = () => {
         });
       }
     },
-    [addToast, history]
+    [addToast, history],
   );
 
   return (

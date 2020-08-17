@@ -1,14 +1,12 @@
 {
   "env": {
+    "browser": true,
     "es6": true,
-    "node": true,
     "jest": true
   },
   "extends": [
-    "airbnb-base",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    "plugin:react/recommended",
+    "airbnb"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -16,32 +14,42 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
   "rules": {
-    "no-underscore-dangle": "off",
-    "prettier/prettier": "error",
-    "class-methods-use-this": "off",
-    "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
+    "import/no-unresolved": "off",
+    "no-shadow": "off",
+    "no-unused-vars": "off",
+    "import/extensions": "off",
+    "no-unused-expressions": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "react/jsx-filename-extension": [
+      2,
       {
-        "argsIgnorePattern": "_"
+        "extensions": [
+          ".tsx"
+        ]
       }
     ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never"
-      }
-    ]
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
+    "react/button-has-type": "off",
+    "arrow-parens": "off",
+    "no-console": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-restricted-syntax": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
   }
 }

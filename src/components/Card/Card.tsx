@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container } from './styles';
 import editIcon from '../../assets/edit-icon.svg';
 import trashIcon from '../../assets/trash-icon.svg';
-import { Link } from 'react-router-dom';
 
 interface EnderecoProps {
   cidade: string;
@@ -24,33 +24,30 @@ const Card: React.FC<CardData> = ({
   email,
   endereco,
   _id,
-  handleEdit,
-  handleModal
-}) => {
-  return (
-    <Container>
-      <header>
-        <h3>{nome}</h3>
-        <Link to={`/users/edit/${_id}`}>
-          <img src={editIcon} alt="edit icon" />
-        </Link>
-      </header>
+  handleModal,
+}) => (
+  <Container>
+    <header>
+      <h3>{nome}</h3>
+      <Link to={`/users/edit/${_id}`}>
+        <img src={editIcon} alt="edit icon" />
+      </Link>
+    </header>
 
-      <section>
-        <p>{cpf}</p>
-        <p>{email}</p>
-      </section>
+    <section>
+      <p>{cpf}</p>
+      <p>{email}</p>
+    </section>
 
-      <footer>
-        <p>{endereco.cidade}</p>
-        <img
-          onClick={() => handleModal(true, _id)}
-          src={trashIcon}
-          alt="trash icon"
-        />
-      </footer>
-    </Container>
-  );
-};
+    <footer>
+      <p>{endereco.cidade}</p>
+      <img
+        onClick={() => handleModal(true, _id)}
+        src={trashIcon}
+        alt="trash icon"
+      />
+    </footer>
+  </Container>
+);
 
 export default Card;

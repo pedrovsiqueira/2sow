@@ -1,4 +1,8 @@
-import React, { useEffect, useState, ChangeEvent, useCallback } from 'react';
+import React, {
+  useEffect, useState, ChangeEvent, useCallback,
+} from 'react';
+import BounceLoader from 'react-spinners/BounceLoader';
+import { Link } from 'react-router-dom';
 import { api } from '../../services/api';
 import {
   Container,
@@ -8,14 +12,12 @@ import {
   ErrorMessage,
 } from './styles';
 import SearchInput from '../../components/Input/SearchInput/SearchInput';
-import Card from '../../components/Card/Card';
-import { CardData } from '../../components/Card/Card';
+import Card, { CardData } from '../../components/Card/Card';
+
 import Nav from '../../components/Nav/Nav';
 import { deleteUser } from '../../services/users';
-import BounceLoader from 'react-spinners/BounceLoader';
 import Button from '../../components/Button/Button';
 import addIcon from '../../assets/add-icon.svg';
-import { Link } from 'react-router-dom';
 import xIcon from '../../assets/x-icon.svg';
 
 const Users: React.FC = () => {
@@ -30,13 +32,13 @@ const Users: React.FC = () => {
   const handleApiRequest = useCallback(async () => {
     try {
       const { data } = await api.get(
-        `usuarios/?searchValue=${searchValue}&limit=9&page=${page}`
+        `usuarios/?searchValue=${searchValue}&limit=9&page=${page}`,
       );
       setUsers(data.results);
       setTotalPages(data.totalPages);
       setIsLoading(false);
     } catch (error) {
-      setUsers([])
+      setUsers([]);
       setIsLoading(false);
     }
   }, [searchValue, page]);
